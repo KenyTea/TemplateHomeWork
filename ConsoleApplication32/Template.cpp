@@ -7,7 +7,6 @@ using namespace std;
 ​сортировки​ ​массива (любым​ ​алгоритмом​ ​сортировки),​
 ​поиска​ ​в​ ​массиве,​ ​замены​ ​элемента​ ​массива​ ​на переданное​ ​значение. */
 
-
 template <typename T>  // Search min
 T getMinOfArrayElemint(T a[], int size) {
 	if (size < 1) {
@@ -48,11 +47,9 @@ void quicksort(T a[], int size) { // Sort
 			if (a[i] > a[i + 1]) {
 				swap(a[i], a[i + 1]);
 			}
-
 		}
 	}
-	for (int i = 0; i < size; ++i)
-	{
+	for (int i = 0; i < size; ++i){
 		cout << a[i] << " ";
 	}
 }
@@ -94,18 +91,12 @@ T getfinedOfArrayElemint(T a[], int x, int size) { // Search
 			cout << endl;
 			cout << "your number is  " << x << endl;
 		}
-
-	}
-	/*cout << endl;
-	cout << "This number is indefined" << endl;*/
+	}	
 	return x;
 }
 
 
 int main() {
-
-
-
 
 	int a[5] = { 10,22,13,4,15 };
 	cout << "min " << getMinOfArrayElemint(a, 5) << endl;
