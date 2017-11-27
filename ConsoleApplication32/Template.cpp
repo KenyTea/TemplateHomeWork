@@ -105,6 +105,6 @@ int main() {
 	quicksort(a, 5);
 	getfinedOfArrayElemint(a, 22, 5);
 	getRepfArrayElemint(a, 88, 3, 5);
-	system("pause");
+	
 	return 0;
 }
