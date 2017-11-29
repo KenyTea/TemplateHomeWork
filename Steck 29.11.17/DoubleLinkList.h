@@ -2,6 +2,8 @@
 template<class T>
 class DoubleLinkList
 {
+
+
 public:
 	DoubleLinkList();
 	~DoubleLinkList();
