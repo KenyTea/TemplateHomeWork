@@ -40,6 +40,7 @@ void DoubleLinkList::addToFerst(const int &value)
 }
 
 
+
 void DoubleLinkList::show()
 {
 	if (first == NULL) {
