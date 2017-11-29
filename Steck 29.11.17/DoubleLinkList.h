@@ -1,19 +1,20 @@
 #pragma once
+
 #include "Node.h"
-template<class T>
+
 class DoubleLinkList
 {
 public:
-
-	Node<T>  *first, *last;
+	int value;
+	 Node *first, *last;
 
 
 	DoubleLinkList();
 	~DoubleLinkList();
 
-	void addToLast(const T &);
+	void addToLast(const int &);
 
-	void addToFerst(const T &);
+	void addToFerst(const int &);
 
 	void show();
 };

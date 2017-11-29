@@ -1,61 +1,60 @@
 #include "stdafx.h"
 #include "DoubleLinkList.h"
+using namespace std;
 
-template<class T>
-DoubleLinkList <T>::DoubleLinkList()
+DoubleLinkList ::DoubleLinkList()
 {
 	first = last = NULL;
 }
 
-template<class T>
-DoubleLinkList <T>::~DoubleLinkList()
+DoubleLinkList ::~DoubleLinkList()
 {
 }
 
-template<class T>
-void DoubleLinkList<T>::addToLast(const T &value)
+
+void DoubleLinkList::addToLast(const int &value)
 {
 	if (first == NULL) {
-		last = first = new Node<T>(value); // created new element
+		last = first = new Node(value); // created new element
     }
 	else {
-		T * temp = new Node<T>(value); // create (next) new element
-		last->next = temp
+		Node * temp = new Node(value); // create (next) new element
+		last->next = temp;
 		temp->prev = last; // 
 		last = temp; //govorim chto last eto teper next
 	}
 }
 
-template<class T>
-void DoubleLinkList<T>::addToFerst(const T &value)
+
+void DoubleLinkList::addToFerst(const int &value)
 {
 	if (first == NULL) {
-		first = last = new Node<T>(value); // created new element
+		first = last = new Node(value); // created new element
 	}
 	else {
-		T * temp = new Node<T>(value); // create (next) new element
+		Node * temp = new Node(value); // create (next) new element
 		first->prev = temp;
 			temp->next = first; // 
 		first = temp; //govorim chto last eto teper next
 	}
 }
 
-template<class T>
-void DoubleLinkList<T>::show()
+
+void DoubleLinkList::show()
 {
 	if (first == NULL) {
 		cout << "List is empty" << endl;
 	}
 	else {
-		/*for (Node<T> * temp = first; temp != NULL; temp = temp->next){
+		/*for (Node * temp = first; temp != NULL; temp = temp->next){
 		cout << temp->value << '\t'; 
 		}
 		cout << endl;*/
 
-		Node<T>* temp = first;
-		while (temp != Null) {
-			cout << temp->value << '\t';
-			teemp = temp->next;
+		Node * temp = first;
+		while (temp != NULL) {
+			cout << temp->value << endl;
+			temp = temp->next;
 		}
 	}
 }
