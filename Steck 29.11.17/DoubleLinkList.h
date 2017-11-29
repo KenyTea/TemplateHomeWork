@@ -11,7 +11,10 @@ public:
 	DoubleLinkList();
 	~DoubleLinkList();
 
-	void add(const T &);
+	void addToLast(const T &);
 
+	void addToFerst(const T &);
+
+	void show();
 };
 
