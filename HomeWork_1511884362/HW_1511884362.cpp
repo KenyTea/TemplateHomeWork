@@ -23,6 +23,9 @@ public:
 
 	void addSimbol(const T);
 	void checkFullOrEmptyStack();
+	int Counter() {
+	     return count;
+	}
 	T popStack();
 	T withoutPop();
 	void clearStack();
@@ -46,6 +49,8 @@ int main() {
 	a.show();
 	a.withoutPop();
 	a.show();
+
+	cout << a.Counter() << endl;
 	
 
 	system("pause");
