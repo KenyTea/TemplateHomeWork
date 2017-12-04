@@ -1,4 +1,5 @@
 #pragma once
+//#include "NodeTree.h"
 template<class T>
 class Tree
 {
@@ -7,5 +8,7 @@ public:
 	Tree();
 	~Tree();
 	void add(const T &, NodeTree<T> &);
+
+	void show(NodeTree<T>&);
 };
 

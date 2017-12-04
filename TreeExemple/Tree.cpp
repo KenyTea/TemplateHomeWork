@@ -2,7 +2,7 @@
 #include "Tree.h"
 
 
-template<class T>
+ template<class T>
 Tree<T>::Tree()
 {
 	root = NULL;
@@ -14,7 +14,7 @@ Tree<T>::~Tree()
 }
 
 template<class T>
-void Tree<T>::add(const T &value, NodeTree<T> &root = this->root)
+inline void Tree<T>::add(const T &value, NodeTree<T> &root = this->root)
 {
 	if (root == NULL) {
 		root = new NodeTree<T>(value);
@@ -33,5 +33,15 @@ void Tree<T>::add(const T &value, NodeTree<T> &root = this->root)
 				root->left = new NodeTree<T>(value);
 			}
 		}
+	}
+}
+
+template<class T>
+inline void Tree<T>::show(NodeTree<T> &root = this->root)
+{
+	if (root != NULL) {
+		cuot << root->value << endl;
+		show(root->left);
+		show(root->right);
 	}
 }
