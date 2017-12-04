@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConsoleApplication32", "ConsoleApplication32\ConsoleApplication32.vcxproj", "{2E8EF094-6EFE-4C27-AADE-C3B93EBEAED5}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWork30.11.17", "HomeWork30.11.17\HomeWork30.11.17.vcxproj", "{BCB56F0E-3A72-40A4-9A9F-0672F85351E4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreeExemple", "TreeExemple\TreeExemple.vcxproj", "{F056D1B0-1B62-42E2-846A-D403A187E977}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Agrigations", "Agrigations\Agrigations.vcxproj", "{12A701D8-3A55-4DA0-A01A-205CF956A0CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,14 @@ Global
 		{F056D1B0-1B62-42E2-846A-D403A187E977}.Release|x64.Build.0 = Release|x64
 		{F056D1B0-1B62-42E2-846A-D403A187E977}.Release|x86.ActiveCfg = Release|Win32
 		{F056D1B0-1B62-42E2-846A-D403A187E977}.Release|x86.Build.0 = Release|Win32
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Debug|x64.ActiveCfg = Debug|x64
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Debug|x64.Build.0 = Debug|x64
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Debug|x86.ActiveCfg = Debug|Win32
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Debug|x86.Build.0 = Debug|Win32
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Release|x64.ActiveCfg = Release|x64
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Release|x64.Build.0 = Release|x64
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Release|x86.ActiveCfg = Release|Win32
+		{12A701D8-3A55-4DA0-A01A-205CF956A0CF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
