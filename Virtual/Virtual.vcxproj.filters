@@ -29,5 +29,8 @@
     <ClCompile Include="Virtual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HW86378.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
