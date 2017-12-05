@@ -19,24 +19,25 @@ class Dog : public HomePets {
 public:
 	
 	void Sound() {
-		cout << " Bug " << endl;
+		cout << "Gav Gav" << endl;
 	}
 	
 	virtual void Show() {
 		
 		cout << Name << endl;
 	}
-	virtual void Type(string &Type) {
+	virtual void Type() {
 
 		cout << "Bishon" << endl;
 	}
 	
+	~Dog() {}
 };
 
 class Cat : public HomePets {
 public:
 	void Sound() {
-		cout << " MYU " << endl;
+		cout << "Myu" << endl;
 	}
 
 	virtual void Show() {
@@ -45,7 +46,7 @@ public:
 	}
 	virtual void Type() {
 
-		cout << "Veslouhiy" << endl;
+		cout << "Garden type" << endl;
 	}
 
 };
@@ -55,7 +56,14 @@ int main() {
 	dog->Name = "Felisity";
 	dog->Sound();
 	dog->Show();
+	dog->Type();
+	cout << "===============================" << endl;
+	HomePets * cat = new Cat();
+	cat->Name = "Mila";
+	cat->Sound();
+	cat->Show();
+	cat->Type();
 
-
+	delete dog;
 	return 0;
 }
