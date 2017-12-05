@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <iostream>
-#include <string>
-using namespace std;
 
 class HomePets {
 public:
@@ -25,8 +22,8 @@ public:
 		cout << " Bug " << endl;
 	}
 	
-	virtual void Show(string &Name) {
-		this->Name = Name;
+	virtual void Show() {
+		
 		cout << Name << endl;
 	}
 	virtual void Type(string &Type) {
@@ -38,9 +35,27 @@ public:
 
 class Cat : public HomePets {
 public:
-	string Myu;
-	string Type;
 	void Sound() {
-		cout << "Bug" << endl;
+		cout << " MYU " << endl;
 	}
+
+	virtual void Show() {
+		
+		cout << Name << endl;
+	}
+	virtual void Type() {
+
+		cout << "Veslouhiy" << endl;
+	}
+
 };
+
+int main() {
+	HomePets * dog = new Dog();
+	dog->Name = "Felisity";
+	dog->Sound();
+	dog->Show();
+
+
+	return 0;
+}
