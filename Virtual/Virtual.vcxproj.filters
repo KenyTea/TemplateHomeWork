@@ -26,10 +26,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Virtual.cpp">
+    <ClCompile Include="HW86378.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HW86378.cpp">
+    <ClCompile Include="HW1_86378.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
