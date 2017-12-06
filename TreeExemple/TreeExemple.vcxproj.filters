@@ -41,5 +41,8 @@
     <ClCompile Include="NodeTree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HWTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
