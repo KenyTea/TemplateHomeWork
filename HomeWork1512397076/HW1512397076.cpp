@@ -56,13 +56,13 @@ class Passport {
 	string Birthday;
 	string Address;
 public:
-	void SetName(string Name) {
+	void SetName(string &Name) {
 		this->Name = Name;
 	}
-	void SetBirthday(string Birthday) {
+	void SetBirthday(string &Birthday) {
 		this->Birthday = Birthday;
 	}
-	void SetAddress(string Address) {
+	void SetAddress(string &Address) {
 		this->Address = Address;
 	}
 	string  GetName()  {
@@ -103,15 +103,15 @@ public:
 		this->Num = Num;
 	}
 
-	void SetCountry(string Country) {
+	void SetCountry(string  &Country) {
 		this->Country = Country;
 	}
 
-	void SetBecome(string Become) {
+	void SetBecome(string &Become) {
 		this->Become = Become;
 	}
 
-	void SetVisa(string Visa) {
+	void SetVisa(string &Visa) {
 		this->Visa = Visa;
 	}
 
