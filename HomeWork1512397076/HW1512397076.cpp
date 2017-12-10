@@ -164,24 +164,84 @@ protected:
 	double *distance;
 	virtual void TimePriceTransport(double distance) = 0;
 	Vehicle() {}
-	Vehicle() {}
+	~Vehicle() {}
 };
 
 class Car: public Vehicle {
-	const double Carspeed = 60;
+	const double carspeed = 60;
 public:
 	Car() {
 				time = new double;
 				price = new double;
 				distance = new double;
 			}
+	virtual void TimePriceTransport(double distance) {
+		*time = distance / carspeed;
+		*price = distance / 50;
+		cout << "Car's speed - " << carspeed << " km/h" << endl;
+		cout << "Travel time - " << *time << " h." << endl;
+		cout << "Price - " << *price << " $" << endl;
+		cout << endl;
+	}
 
+	~Car() {
+		delete time;
+		delete price;
+		delete distance;
+	}
 
 };
 
+class Bike : public Vehicle {
+	const double bikespeed = 20;
+public:
+
+	Bike() {
+		distance = new double;
+		price = new double;
+		time = new double;
+	}
+	void TimePriceTransport(double distance) {
+		*time = distance / bikespeed;
+		*price = distance / 20;
+		cout << "bike's speed - " << bikespeed << " km/h" << endl;
+		cout << "Travel time - " << *time << " h." << endl;
+		cout << "Price - " << *price << " $" << endl;
+		cout << endl;
+	}
+	~Bike() {
+		delete price;
+		delete time;
+		delete distance;
+	};
+};
+
+class Wagon : public Vehicle {
+	const double wagonspeed = 40;
+public:
+	Wagon() {
+		distance = new double;
+		price = new double;
+		time = new double;
+	}
+	 void TimePriceTransport(double distance) {
+		*time = distance / wagonspeed;
+		*price = distance / 5;
+		cout << "Wagon's speed - " << wagonspeed << " km/h" << endl;
+		cout << "Travel time - " << *time << " h." << endl;
+		cout << "Price - " << *price << " $" << endl;
+		cout << endl;
+	}
+	~Wagon() {
+		delete price;
+		delete time;
+		delete distance;
+	}
+};
+	
 
 int main() {
-	// #1
+	//#1
 	/*Aspirant *aspirant = new Aspirant("Alfar", 7, "Applied Mathematics");
 	aspirant->show();
 	delete aspirant;*/
@@ -197,6 +257,19 @@ int main() {
 	delete passport;
 	delete Fpassport;*/
 
+	//#3
+	Car * car = new Car();
+	car->TimePriceTransport(10);
+
+	Bike * bike = new Bike();
+	bike->TimePriceTransport(10);
+
+	Wagon * wagon = new Wagon();
+	wagon->TimePriceTransport(10);
+
+	delete bike;
+	delete car;
+	delete wagon;
 	return 0;
 }
 
