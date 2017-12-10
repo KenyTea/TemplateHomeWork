@@ -41,116 +41,143 @@ using namespace std;
 //		}
 //};
 
-/*Задание №2
-Создайте класс Passport (паспорт), который будет содержать
-паспортную информацию о гражданине Украины.
-С помощью механизма наследования, реализуйте класс
-ForeignPassport (загран.паспорт) производный от Passport.
-Напомним, что заграничный паспорт содержит помимо па-
-спортных данных, также данные о визах, номер заграничного па-
-спорта.*/
+///*Задание №2
+//Создайте класс Passport (паспорт), который будет содержать
+//паспортную информацию о гражданине Украины.
+//С помощью механизма наследования, реализуйте класс
+//ForeignPassport (загран.паспорт) производный от Passport.
+//Напомним, что заграничный паспорт содержит помимо па-
+//спортных данных, также данные о визах, номер заграничного па-
+//спорта.*/
+//
+//class Passport {
+//	
+//	string Name;
+//	string Birthday;
+//	string Address;
+//public:
+//	void SetName(string &Name) {
+//		this->Name = Name;
+//	}
+//	void SetBirthday(string &Birthday) {
+//		this->Birthday = Birthday;
+//	}
+//	void SetAddress(string &Address) {
+//		this->Address = Address;
+//	}
+//	string  GetName()  {
+//		return Name;
+//	}
+//	string  GetBirthday() {
+//		return Birthday;
+//	}
+//	string  GetAddress() {
+//		return Address;
+//	}
+//
+//	Passport() {}
+//
+//	Passport(string Name1, string Birthday1, string  Address1) {
+//		SetName(Name1), SetBirthday(Birthday1), SetAddress(Address1);
+//	}
+//	
+//	~Passport() {}
+//
+//	void ShowPassport() {
+//		cout << "Passport information" << endl;
+//		cout << "Name - " << GetName() << endl;
+//		cout << "Birthday - " << GetBirthday() << endl;
+//		cout << "Address - " << GetAddress() << endl;
+//		cout << endl;
+//	}
+//
+//};
+//
+//class ForeignPassport : public Passport {
+//	int Num;
+//	string Country;
+//	string Become;
+//	string Visa;
+//public:
+//	void SetNum(int Num) {
+//		this->Num = Num;
+//	}
+//
+//	void SetCountry(string  &Country) {
+//		this->Country = Country;
+//	}
+//
+//	void SetBecome(string &Become) {
+//		this->Become = Become;
+//	}
+//
+//	void SetVisa(string &Visa) {
+//		this->Visa = Visa;
+//	}
+//
+//	int const GetNum() {
+//		return Num;
+//	}
+//
+//	string GetCountry() {
+//		return Country;
+//	}
+//
+//	string GetBecome() {
+//		return Become;
+//	}
+//
+//	string GetVisa() {
+//		return Visa;
+//	}
+//
+//	ForeignPassport() {}
+//
+//	ForeignPassport(int Num1, string Country1, string Become1, string Visa1) {
+//		SetNum(Num1), SetCountry(Country1), SetBecome(Become1), SetVisa(Visa1);
+//	}
+//
+//	~ForeignPassport() {}
+//
+//	void ShowForeignPassport() {
+//		cout << "Foreign Passport information" << endl;
+//		cout << "ID - " << GetNum() << endl;
+//		cout << "Country - " << GetCountry() << endl;
+//		cout << "Become - " << GetBecome() << endl;
+//		cout << "Visa - " << GetVisa() << endl;
+//		cout << endl;
+//
+//	}
+//
+//};
 
-class Passport {
-	
-	string Name;
-	string Birthday;
-	string Address;
-public:
-	void SetName(string &Name) {
-		this->Name = Name;
-	}
-	void SetBirthday(string &Birthday) {
-		this->Birthday = Birthday;
-	}
-	void SetAddress(string &Address) {
-		this->Address = Address;
-	}
-	string  GetName()  {
-		return Name;
-	}
-	string  GetBirthday() {
-		return Birthday;
-	}
-	string  GetAddress() {
-		return Address;
-	}
+/*Задание №3
+Создать абстрактный базовый класс «Транспортное средство»
+и производные классы «Автомобиль», «Велосипед», «Повозка».
+Подсчитать время и стоимость перевозки пассажиров и грузов
+каждым транспортным средством.*/
 
-	Passport() {}
-
-	Passport(string Name1, string Birthday1, string  Address1) {
-		SetName(Name1), SetBirthday(Birthday1), SetAddress(Address1);
-	}
-	
-	~Passport() {}
-
-	void ShowPassport() {
-		cout << "Passport information" << endl;
-		cout << "Name - " << GetName() << endl;
-		cout << "Birthday - " << GetBirthday() << endl;
-		cout << "Address - " << GetAddress() << endl;
-		cout << endl;
-	}
-
+class Vehicle {
+protected:
+	double *time;
+	double *price;
+	double *distance;
+	virtual void TimePriceTransport(double distance) = 0;
+	Vehicle() {}
+	Vehicle() {}
 };
 
-class ForeignPassport : public Passport {
-	int Num;
-	string Country;
-	string Become;
-	string Visa;
+class Car: public Vehicle {
+	const double Carspeed = 60;
 public:
-	void SetNum(int Num) {
-		this->Num = Num;
-	}
+	Car() {
+				time = new double;
+				price = new double;
+				distance = new double;
+			}
 
-	void SetCountry(string  &Country) {
-		this->Country = Country;
-	}
-
-	void SetBecome(string &Become) {
-		this->Become = Become;
-	}
-
-	void SetVisa(string &Visa) {
-		this->Visa = Visa;
-	}
-
-	int const GetNum() {
-		return Num;
-	}
-
-	string GetCountry() {
-		return Country;
-	}
-
-	string GetBecome() {
-		return Become;
-	}
-
-	string GetVisa() {
-		return Visa;
-	}
-
-	ForeignPassport() {}
-
-	ForeignPassport(int Num1, string Country1, string Become1, string Visa1) {
-		SetNum(Num1), SetCountry(Country1), SetBecome(Become1), SetVisa(Visa1);
-	}
-
-	~ForeignPassport() {}
-
-	void ShowForeignPassport() {
-		cout << "Foreign Passport information" << endl;
-		cout << "ID - " << GetNum() << endl;
-		cout << "Country - " << GetCountry() << endl;
-		cout << "Become - " << GetBecome() << endl;
-		cout << "Visa - " << GetVisa() << endl;
-		cout << endl;
-
-	}
 
 };
-
 
 
 int main() {
@@ -160,7 +187,7 @@ int main() {
 	delete aspirant;*/
 
 	//#2
-	Passport *passport = new Passport("Ivanov Ivan Ivanovich", "12.07.1983", "Almaty, Kalinina 151, ap. 25");
+	/*Passport *passport = new Passport("Ivanov Ivan Ivanovich", "12.07.1983", "Almaty, Kalinina 151, ap. 25");
 	passport->ShowPassport();
 
 
@@ -168,7 +195,7 @@ int main() {
 	Fpassport->ShowForeignPassport();
 
 	delete passport;
-	delete Fpassport;
+	delete Fpassport;*/
 
 	return 0;
 }
@@ -177,10 +204,6 @@ int main() {
 
 
 
-/*Задание №3
-Создать абстрактный базовый класс «Транспортное средство»
-и производные классы «Автомобиль», «Велосипед», «Повозка».
-Подсчитать время и стоимость перевозки пассажиров и грузов
-каждым транспортным средством.*/
+
 
 
