@@ -85,9 +85,9 @@ public:
 
 	void ShowPassport() {
 		cout << "Passport information" << endl;
-		cout << "Name - " << GetName << endl;
-		cout << "Birthday - " << GetBirthday << endl;
-		cout << "Address - " << GetAddress << endl;
+		cout << "Name - " << GetName() << endl;
+		cout << "Birthday - " << GetBirthday() << endl;
+		cout << "Address - " << GetAddress() << endl;
 		cout << endl;
 	}
 
@@ -137,15 +137,14 @@ public:
 		SetNum(Num1), SetCountry(Country1), SetBecome(Become1), SetVisa(Visa1);
 	}
 
-	ForeignPassport() {}
+	~ForeignPassport() {}
 
 	void ShowForeignPassport() {
-		Passport::ShowPassport();
 		cout << "Foreign Passport information" << endl;
-		cout << "ID - " << GetNum << endl;
-		cout << "Country - " << GetCountry << endl;
-		cout << "Become - " << GetBecome << endl;
-		cout << "Visa - " << GetVisa << endl;
+		cout << "ID - " << GetNum() << endl;
+		cout << "Country - " << GetCountry() << endl;
+		cout << "Become - " << GetBecome() << endl;
+		cout << "Visa - " << GetVisa() << endl;
 		cout << endl;
 
 	}
