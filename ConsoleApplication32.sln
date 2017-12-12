@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Meet21ClassWork", "Meet21Cl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrayCatch", "TrayCatch\TrayCatch.vcxproj", "{B4F6B82E-081F-4F50-BC72-1BD05B5036A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Meet22", "Meet22\Meet22.vcxproj", "{46739DED-A6AD-4E54-9BED-D4ADC22DE264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -151,6 +153,14 @@ Global
 		{B4F6B82E-081F-4F50-BC72-1BD05B5036A6}.Release|x64.Build.0 = Release|x64
 		{B4F6B82E-081F-4F50-BC72-1BD05B5036A6}.Release|x86.ActiveCfg = Release|Win32
 		{B4F6B82E-081F-4F50-BC72-1BD05B5036A6}.Release|x86.Build.0 = Release|Win32
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Debug|x64.ActiveCfg = Debug|x64
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Debug|x64.Build.0 = Debug|x64
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Debug|x86.ActiveCfg = Debug|Win32
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Debug|x86.Build.0 = Debug|Win32
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Release|x64.ActiveCfg = Release|x64
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Release|x64.Build.0 = Release|x64
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Release|x86.ActiveCfg = Release|Win32
+		{46739DED-A6AD-4E54-9BED-D4ADC22DE264}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
