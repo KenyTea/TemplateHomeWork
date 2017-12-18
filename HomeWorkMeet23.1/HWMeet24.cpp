@@ -46,7 +46,7 @@ public:
 				cout << "The file not found" << endl;
 			}
 			else {
-				fout  << "Student name - " << Name << " | "
+				fout  << "\nStudent name - " << Name << " | "
 					<< "Course - " << Course << " | "
 					<< "Specialty - " << Specialty << endl;
 				cout << endl;
@@ -60,9 +60,9 @@ public:
 			if (!fin.is_open()) {
 				cout << "The file not found" << endl;
 			}
-			else {
-				fin >> ;
-			}
+			//else {
+			//	fin >> ;
+			//}
 		
 		
 		}
