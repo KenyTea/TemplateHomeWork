@@ -39,36 +39,36 @@ public:
 		}
 
 		void GetInFile() {
-			ofstream fout;
-			fout.open("Student.txt", ofstream::app);
-			if (!fout.is_open()) {
+			ofstream fout; // создаЄм переменную типа ofstream дл€ записи
+			fout.open("Student.txt", ofstream::app); // открываем файл и дополнительно указываем ofstream::app дл€ дозаписывани€ в конец (без затирани€)
+			if (!fout.is_open()) { // проверка на открыти€ файла
 				cout << "The file not found" << endl;
 			}
-			else {
+			else { // посылаем в fout данные
 				fout  << "\nStudent name - " << Name << " | "
 					<< "Course - " << Course << " | "
 					<< "Specialty - " << Specialty << endl;
 				cout << endl;
 			}
-			fout.close();
+			fout.close(); // закрытие файла !!!
 		}
 
 		void SetOutFile() {
-			ifstream fin;
-			fin.open("Student.txt");
-			if (!fin.is_open()) {
+			ifstream fin; // создаЄм переменную типа ifstream дл€ считывани€
+			fin.open("Student.txt"); // открывает файл
+			if (!fin.is_open()) { // проверка на наличие файла
 				cout << "The file not found" << endl;
 			}
 			else {
-				string temp;
-				while(!fin.eof()) {
-					temp = "";
-					getline(fin, temp);
-				cout << temp << endl;
+				string temp; // создаЄм временную переменную того же типа
+				while(!fin.eof()) { // запускаем цикл с условием выхода eof - end of file
+					temp = ""; // обнул€ем переменную дл€ исключени€ повтора последней записи
+					getline(fin, temp); // используем getline(от std) с вложенными параметрами
+				cout << temp << endl; // выводми на консоли
 				}
 
 			}	
-			fin.close();
+			fin.close(); // закрываем файд !!!
 		}
 
 };
