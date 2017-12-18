@@ -39,7 +39,6 @@ public:
 		}
 
 		void GetInFile() {
-
 			ofstream fout;
 			fout.open("Student.txt", ofstream::app);
 			if (!fout.is_open()) {
@@ -60,11 +59,16 @@ public:
 			if (!fin.is_open()) {
 				cout << "The file not found" << endl;
 			}
-			//else {
-			//	fin >> ;
-			//}
-		
-		
+			else {
+				string temp;
+				while(!fin.eof()) {
+					temp = "";
+					getline(fin, temp);
+				cout << temp << endl;
+				}
+
+			}	
+			fin.close();
 		}
 
 };
@@ -72,9 +76,10 @@ public:
 
 int main() {
 	//#1
-	Student *student = new Student("Alfar", 2, "Applied Mathematics");
-	student->show();
+	Student *student = new Student("Alfar Latypov", 2, "Applied Mathematics");
+	//student->show();
 	student->GetInFile();
+	student->SetOutFile();
 	delete student;
 
 	
