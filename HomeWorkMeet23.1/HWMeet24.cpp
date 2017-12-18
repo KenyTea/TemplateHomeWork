@@ -41,7 +41,7 @@ public:
 		void GetInFile() {
 
 			ofstream fout;
-			fout.open("Student.txt");
+			fout.open("Student.txt", ofstream::app);
 			if (!fout.is_open()) {
 				cout << "The file not found" << endl;
 			}
