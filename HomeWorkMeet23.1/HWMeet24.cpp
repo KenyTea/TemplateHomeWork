@@ -38,14 +38,44 @@ public:
 
 		}
 
+		void GetInFile() {
+
+			ofstream fout;
+			fout.open("Student.txt");
+			if (!fout.is_open()) {
+				cout << "The file not found" << endl;
+			}
+			else {
+				fout  << "Student name - " << Name << " | "
+					<< "Course - " << Course << " | "
+					<< "Specialty - " << Specialty << endl;
+				cout << endl;
+			}
+			fout.close();
+		}
+
+		void SetOutFile() {
+			ifstream fin;
+			fin.open("Student.txt");
+			if (!fin.is_open()) {
+				cout << "The file not found" << endl;
+			}
+			else {
+				fin >> ;
+			}
+		
+		
+		}
 
 };
 
+
 int main() {
 	//#1
-	Student *aspirant = new Student("Alfar", 2, "Applied Mathematics");
-	aspirant->show();
-	delete aspirant;
+	Student *student = new Student("Alfar", 2, "Applied Mathematics");
+	student->show();
+	student->GetInFile();
+	delete student;
 
 	
 	return 0;
