@@ -32,7 +32,21 @@ void foo() {
 void shared_ptr() { // проверяет весь кол и считает колличество ссылок "х"
 	std::shared_ptr<int> x(new int(5));
 	std::cout << "point's count - " << x.use_count() << std::endl;
+	std::shared_ptr<int> y = x;
+	std::cout<< "shared_ptr - " << *y << " " << *x << std::endl;
+	std::cout << "shared_ptr Address - " << y << " " << x << std::endl;
+	std::cout << "point's count - " << x.use_count() << std::endl;
 
+}
+
+void use_count(std::shared_ptr <int> & x) {
+	std::cout << "point's count <x> - " << x.use_count() << std::endl;
+
+}
+
+void unique_ptr() { // не даёт копировать, типо const
+
+	std::unique_ptr<int> x(new int(5));
 }
 
 int main() {
@@ -40,6 +54,9 @@ int main() {
 	foo();
 	std::cout << std::endl;
 	shared_ptr();
+	std::cout << std::endl;
+	std::shared_ptr<int> x(new int(5));
+	use_count(x);
 	system("pause");
 	return 0;
 }
