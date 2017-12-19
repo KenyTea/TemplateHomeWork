@@ -62,20 +62,21 @@ public:
 					cout << str << endl;
 					system("pause");
 				}
-			//string temp; // создаём временную переменную того же типа
-			//while (!fin.eof()) { // запускаем цикл с условием выхода eof - end of file
-			//	temp = ""; // обнуляем переменную для исключения повтора последней записи
-			//	getline(fin, temp); // используем getline(от std) с вложенными параметрами
-			//	cout << temp << endl; // выводми на консоли
-			//}
-
 		}
 		fin.close(); // закрываем файд !!!
 	}
 
 	void Substitution() {
 		ofstream fout;
-		fout.open(path); cin >> str;
+		fout.open(path); 
+		if (!fout.is_open()) { // проверка на открытия файла
+			cout << "The file not found" << endl;
+		}
+		else { // посылаем в fout данные
+			cin >> str;
+			fout << str << endl;
+			cout << endl;
+		}
 		fout.close();
 	}
 
