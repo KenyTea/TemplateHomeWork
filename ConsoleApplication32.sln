@@ -41,6 +41,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rebuild19.12.17", "rebuild1
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Meet25.1", "Meet25.1\Meet25.1.vcxproj", "{FC9F65D5-075A-4F6E-872A-A6087246B128}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Smart pointer", "Smart pointer\Smart pointer.vcxproj", "{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -201,6 +203,14 @@ Global
 		{FC9F65D5-075A-4F6E-872A-A6087246B128}.Release|x64.Build.0 = Release|x64
 		{FC9F65D5-075A-4F6E-872A-A6087246B128}.Release|x86.ActiveCfg = Release|Win32
 		{FC9F65D5-075A-4F6E-872A-A6087246B128}.Release|x86.Build.0 = Release|Win32
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Debug|x64.ActiveCfg = Debug|x64
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Debug|x64.Build.0 = Debug|x64
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Debug|x86.ActiveCfg = Debug|Win32
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Debug|x86.Build.0 = Debug|Win32
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Release|x64.ActiveCfg = Release|x64
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Release|x64.Build.0 = Release|x64
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Release|x86.ActiveCfg = Release|Win32
+		{4C39C250-B9ED-4EEF-9501-9240AE5F2E33}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

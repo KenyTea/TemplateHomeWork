@@ -81,9 +81,9 @@ public:
 
 	void FindString() {
 		ifstream fin(path);
-		size_t npos;
+		//size_t npos;
 		cout << "\n\t\tWhat to look for? - "; cin >> find;
-		pos = str.find(find);
+		//pos = str.find(find);
 		while (getline(fin, str)) { cout << str << endl; }
 		/*if (pos != string :: npos) { cout << "\n\t\tFound at pos = " << pos + 1 << "\n"; }
 		else { cout << "\n\t\tNot found\n"; }*/
