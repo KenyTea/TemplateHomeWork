@@ -29,9 +29,17 @@ void foo() {
 
 }
 
+void shared_ptr() { // проверяет весь кол и считает колличество ссылок "х"
+	std::shared_ptr<int> x(new int(5));
+	std::cout << "point's count - " << x.use_count() << std::endl;
+
+}
+
 int main() {
 	
 	foo();
+	std::cout << std::endl;
+	shared_ptr();
 	system("pause");
 	return 0;
 }
