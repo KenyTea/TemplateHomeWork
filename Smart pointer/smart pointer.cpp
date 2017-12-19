@@ -1,6 +1,8 @@
 #include <iostream>
 #include <memory>
 #include <fstream>
+#include <set>
+#include <string>
 
 class A {
 public:
@@ -57,6 +59,21 @@ int main() {
 	std::cout << std::endl;
 	std::shared_ptr<int> x(new int(5));
 	use_count(x);
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::string n;
+	std::getline(std::cin, n);
+	std::set<char> b;
+	for (size_t i = 0; i < n.length(); i++)
+	{
+		if (b.find(n[i]) != b.end()) {
+			std::cout << "not unique" << std::endl;
+			return 0;
+		}
+		else { b.insert(n[i]); }
+	}
+	std::cout << "unique" << std::endl;
 	system("pause");
 	return 0;
 }
