@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include<algorithm> // for sort
+
 void Vector() {
 	int arr[10] = { 2,3,5,6,7,8,9,0,4,1 };
 	std::vector <int> x(arr, arr + 10);
@@ -37,13 +38,27 @@ void List() {
 	}
 	std::cout << std::endl;
 }
+void Multymap() {
+	std::multimap <std::string, int> dictionary1;
+	dictionary1.insert(std::make_pair<std::string, int>("123", 1));
+	std::cout << dictionary1.find("123")->first << std::endl;
+	dictionary1.insert(std::make_pair<std::string, int>("123", 5));
+	auto it3 = dictionary1.begin();
+	for (; it3 != dictionary1.end(); ++it3) {
+		std::cout << it3->first << '\t' << it3->second << '\t';
+	}
+	std::cout << std::endl;
+}
 int main() {
+	
 	Vector();
 	std::cout << "Vector" << std::endl;
 	Map();
 	std::cout << "Map" <<std::endl;
 	List();
 	std::cout << "List" << std::endl;
+	Multymap();
+	std::cout << "Multymap" << std::endl;
 
 
 	system("pause");
