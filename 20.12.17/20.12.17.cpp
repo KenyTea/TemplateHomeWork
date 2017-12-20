@@ -25,7 +25,7 @@ void Map() {
 	}
 	std::cout << std::endl;
 }
-int main() {
+void List() {
 	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
 	std::list <int> y(arr, arr + 10);
 	auto it1 = y.begin();
@@ -34,6 +34,9 @@ int main() {
 		std::cout << *it1 << '\t';
 	}
 	std::cout << std::endl;
+}
+int main() {
+	
 
 	
 
