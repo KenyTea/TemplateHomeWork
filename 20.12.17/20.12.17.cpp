@@ -1,4 +1,4 @@
-//итераторы iterators
+// iterators
 #include <iostream>
 #include <vector>
 #include <map>
@@ -8,7 +8,7 @@
 void Vector() {
 	int arr[10] = { 2,3,5,6,7,8,9,0,4,1 };
 	std::vector <int> x(arr, arr + 10);
-	std::vector <int> ::iterator it = x.begin(); // iterator необходим для бега по массиву, чтоб не вышел из деапазона
+	std::vector <int> ::iterator it = x.begin(); // iterator It is necessary for running on an array, that did not leave the range
 	for (; it != x.end(); ++it)
 	{
 		std::cout << *it << '\t';
