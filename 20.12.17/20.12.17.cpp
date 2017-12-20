@@ -4,7 +4,7 @@
 #include <map>
 #include <list>
 #include <string>
-#include<algorithm>
+#include<algorithm> // for sort
 void Vector() {
 	int arr[10] = { 2,3,5,6,7,8,9,0,4,1 };
 	std::vector <int> x(arr, arr + 10);
