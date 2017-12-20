@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <list>
 #include <string>
 void Vector() {
 	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
@@ -15,11 +16,6 @@ void Vector() {
 
 }
 void Map() {
-
-}
-int main() {
-	
-
 	std::map <std::string, int> dictionary;
 	dictionary.emplace(std::make_pair<std::string, int>("123", 1));
 	std::cout << dictionary.at("123") << std::endl;
@@ -28,6 +24,18 @@ int main() {
 		std::cout << it2->first << '\t' << it2->second << '\t';
 	}
 	std::cout << std::endl;
+}
+int main() {
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,0 };
+	std::list <int> y(arr, arr + 10);
+	auto it1 = y.begin();
+	for (; it1 != y.end(); ++it1)
+	{
+		std::cout << *it1 << '\t';
+	}
+	std::cout << std::endl;
+
+	
 
 
 	system("pause");
