@@ -5,6 +5,7 @@
 #include <list>
 #include <string>
 #include<algorithm> // for sort
+#include <unordered_map> //
 
 void Vector() {
 	int arr[10] = { 2,3,5,6,7,8,9,0,4,1 };
