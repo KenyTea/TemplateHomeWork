@@ -116,17 +116,29 @@
 //	return 0;
 //}
 
+void Foo(std::array<char, 5> x, std::array<char, 5> y) {
+	if (std::is_permutation(x.begin(), x.end(), y.begin())) {
+		std::cout << "The same elements.\n" << std::endl;
+	}
+	else std::cout << "Don't have same elements.\n";
+
+}
 
 int main() {
 
-	std::array<char, 5> A = { 'a','b','c','d','e' };
-	std::array<char, 5> B = { 'b','a','c','d','e' };
-	std::array<char, 5> C = { 'c','b','a','d','e' };
-	std::array<char, 5> D = { 'd','b','a','c','e' };
-	std::array<char, 5> E = { 'e','d','b','c','a' };
+	std::array<char, 5> a = { 'a','b','c','d','e' };
+	std::array<char, 5> b = { 'b','a','c','d','e' };
+	std::array<char, 5> c = { 'c','b','a','d','e' };
+	std::array<char, 5> d = { 'd','b','a','c','e' };
+	std::array<char, 5> e = { 'e','d','b','c','a' };
 
+	Foo(a, b);
+	Foo(b, c);
+	Foo(c, d);
+	Foo(d, e);
+	Foo(e, a);
 
-	if (std::is_permutation(A.begin(), A.end(), B.begin())) {
+	/*if (std::is_permutation(A.begin(), A.end(), B.begin())) {
 		std::cout << "A and B contain the same elements.\n" << std:: endl;
 	}
 	else std::cout << "A and B contain the don't have same elements.\n";
@@ -150,7 +162,7 @@ int main() {
 		std::cout << "E and A contain the same elements.\n" << std::endl;
 	}
 	else std::cout << "E and A contain the don't have same elements.\n";
-
+*/
 	system("pause");
 	return 0;
 }
