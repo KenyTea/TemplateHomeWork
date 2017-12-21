@@ -15,7 +15,7 @@ std::ostream & operator << (std::ostream & stream, const A & a)
 	return stream;
 }
 
-std::istream & operator >> (std::istream &stream, const A & a)
+std::istream & operator >> (std::istream & stream, const A & a)
 {
 	stream >> a.value;
 	return stream;
