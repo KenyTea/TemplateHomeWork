@@ -125,7 +125,31 @@ void Foo(std::array<char, 5> x, std::array<char, 5> y) {
 }
 
 int main() {
+	//-----------------------------------------------------
+	// Muslim's version check unic O(n2) and O(n)
+	std::string s = "123456789";
+	for (int i = 0; i < s.length(); ++i) {
+		for (int j = 0; j < s.length(); ++j) {
+			if (i != j && s[i] == s[j]) {
+				std::cout << "not unique";
+				return 0;
+			}
+		}
+	}
+	s = "1223456789";
+	bool arr[256] = { false };
+	for (int i = 0; i < s.length(); ++i) {
+		int temp = (int)(s[i] - 48);
+		if (arr[temp]) {
+			std::cout << "not unique";
+			return 0;
+		}
+		arr[temp] = true;
+	}
 
+	std::cout << "unique";
+	return 0;
+//--------------------------------------------------------------
 	std::array<char, 5> a = { 'a','b','c','d','e' };
 	std::array<char, 5> b = { 'b','a','c','d','e' };
 	std::array<char, 5> c = { 'c','b','a','d','e' };
