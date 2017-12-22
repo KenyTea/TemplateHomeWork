@@ -21,7 +21,8 @@ int main() {
 	std::vector<int> x (10);
 	
 	std::for_each(x.begin(), x.end(), [](int & a) {a = rand() % 10; std::cout << a << " "; }); std::cout << std::endl; // set random numbers in vector
-	
+	std::cout << std::endl;
+
 	std::cout << "Min element " << *std::min_element(x.begin(), x.end()/*, a*/); std::cout << std::endl; // min element whithout functor
 	std::cout << "Max element " << *std::max_element(x.begin(), x.end(), a); std::cout << std::endl; // max lement
 	std::cout << std::endl;
@@ -36,13 +37,29 @@ int main() {
 	std::cout << std::endl;
 	
 	int n = 10;
-	std::for_each(x.begin(), x.end(), [n](int & a) { a += n; });
+	std::for_each(x.begin(), x.end(), [n](int & a) { a += n; }); // +10
 	std::cout << "+10   "; std::for_each(x.begin(), x.end(), [n](int & a) {std::cout << a << " "; });
 	std::cout << std::endl;
 
-	std::for_each(x.begin(), x.end(), [n](int & a) { a -= n; });
+	std::for_each(x.begin(), x.end(), [n](int & a) { a -= n; });// -10
 	std::cout << "-10   "; std::for_each(x.begin(), x.end(), [n](int & a) {std::cout << a << " "; });
 	std::cout << std::endl;
+
+	/*auto it = x.begin();
+	while (it != x.end()) {
+		auto y = std::find(it, x.end(), 1);
+		if (y != x.end()) {
+			x.erase(y);
+		}
+	}*/
+	std::cout << std::endl;
+	x.erase(std::remove(x.begin(), x.end(), 9), x.end());// remove 9 from vector
+	std::cout << "Remove 9   "; std::for_each(x.begin(), x.end(), [n](int & a) {std::cout << a << " "; });
+
+	int z = 2;
+	x.erase(x.begin() + z);
+
+
 
 	system("pause");
 	return 0;
