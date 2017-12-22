@@ -24,8 +24,16 @@ int main() {
 	
 	std::cout << "Min element " << *std::min_element(x.begin(), x.end()/*, a*/); std::cout << std::endl; // min element whithout functor
 	std::cout << "Max element " << *std::max_element(x.begin(), x.end(), a); std::cout << std::endl; // max lement
-	std::cout << "Greater " << *std::max_element(x.begin(), x.end(), std::greater<int>()); // sort 0 - 9
-	std::cout << "Less " << *std::max_element(x.begin(), x.end(), std::less<int>());// sort 9 - 0
+
+	std::sort(x.begin(), x.end(), std::greater<int>()); // sort 0 - 9
+	std::cout << "Greater "; std::for_each(x.begin(), x.end(), [](int & a) {std::cout  << a; });
+	std::cout << std::endl; 
+
+	std::sort(x.begin(), x.end(), std::less<int>()); // sort 9 - 0
+	std::cout << "Less "; std::for_each(x.begin(), x.end(), [](int & a) {std::cout  << a; });
+	std::cout << std::endl;
+	int n = 10;
+	//std::for_each(x.begin(), x.end(),[n](int & a){}
 	system("pause");
 	return 0;
 }
