@@ -7,14 +7,7 @@
 // Meet 28
 class Country;
 class City;
-//class Country
-//{
-//	std::vector<City> cityes;
-//};
-//class City : public Country 
-//{public:
-//	std::string name;
-//};
+
 
 class City {
 public:
