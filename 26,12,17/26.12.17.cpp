@@ -73,11 +73,11 @@ int main() {
 	
 	std::vector <City> cityes;
 	Manager man;
-	man.writeToFilt();
+	//man.writeToFilt();
 	man.readFile();
 
 	std::cout << man;
-	std::cout << man.cityes.size() << std::endl;
+	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
 
 
 	system("pause");
