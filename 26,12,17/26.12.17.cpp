@@ -87,7 +87,7 @@ public:
 		std::cout << x->country << std::endl;
 		}
 
-	void remove(City & city, City &newcity) {
+	void replacement(City & city, City &newcity) {
 		std::replace(cityes.begin(), cityes.end(), city, newcity);
 
 	}
@@ -110,7 +110,7 @@ int main() {
 	City a("Kazakhstsn", "Astana");
 	City b("Kazakhstsn", "Akmola");
 
-	man.remove(a, b);
+	man.replacement(a, b);
 	man.writeToFilt();
 	man.readFile();
 
