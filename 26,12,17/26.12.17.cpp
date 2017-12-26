@@ -38,7 +38,7 @@ class Manager {
 public:
 	std::vector<City> cityes;
 	Manager() {
-		City city("Kazakhstan", "Alaty");
+		City city("Kazakhstan", "Almaty");
 		cityes.push_back(city);
 		City city1("Kazakhstan", "Astana");
 		cityes.push_back(city1);
@@ -76,6 +76,15 @@ public:
 	
 	friend std::ostream & operator << (std::ostream & stream, Manager & manager);
 
+	void findCountryByCity() {
+		std::string find;
+		std::cout << "Enter city name ";
+		std::cin >> find;
+		auto x = std::find_if(cityes.begin(), cityes.end(), [find](City & city) {return find == city.name; });
+		std::cout << x->country << std::endl;
+		}
+
+	
 };
 
 int main() {
@@ -87,6 +96,8 @@ int main() {
 
 	std::cout << man;
 	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
+	std::cout << std::endl;
+	man.findCountryByCity();
 
 
 	system("pause");
