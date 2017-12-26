@@ -101,7 +101,7 @@ int main() {
 	man.findCountryByCity();
 	
 
-
+	City A("Astana", "Akmola");
 
 	system("pause");
 	return 0;
