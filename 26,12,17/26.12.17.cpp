@@ -91,6 +91,12 @@ public:
 		std::replace(cityes.begin(), cityes.end(), city, newcity);
 
 	}
+
+	void show() {
+		std::for_each(cityes.begin(), cityes.end(), [](City city) { std::cout << city.country << "  "<<
+			city.name << '\t'; });
+
+	}
 	
 };
 
@@ -98,22 +104,20 @@ int main() {
 	
 	std::vector <City> cityes;
 	Manager man;
-	man.writeToFilt();
-	man.readFile();
+	//man.writeToFilt();
+	//man.readFile();
 
 	std::cout << man;
 	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
 	std::cout << std::endl;
-	man.findCountryByCity();
+	//man.findCountryByCity();
 	
 
 	City a("Kazakhstsn", "Astana");
 	City b("Kazakhstsn", "Akmola");
-
-	man.replacement(a, b);
-	man.writeToFilt();
-	man.readFile();
-
+	a == b;
+	//man.replacement(a, b);
+	man.show();
 	system("pause");
 	return 0;
 }
@@ -127,7 +131,7 @@ std::ostream & operator<<(std::ostream & stream, const City & city)
 
 bool operator==(const City & city, const City & newcity)
 {
-	return city.name == newcity.name;
+	return city.name == newcity.name && city.country == newcity.country;
 }
 
 std::ostream & operator <<(std::ostream & stream,  Manager & manager)
