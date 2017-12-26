@@ -30,7 +30,7 @@ public:
 
 	friend std::ostream & operator << (std::ostream & stream,const  City & city);
 
-	friend City  operator == (City & city, City & newcity);
+	friend bool  operator == (const City & city, const City & newcity);
 
 };
 
@@ -52,6 +52,7 @@ public:
 				fout << city;
 		}
 			});
+		fout.clear();
 	}
 
 	void readFile() {
@@ -72,6 +73,8 @@ public:
 			}
 		}
 
+		fin.close();
+
 	}
 	
 	friend std::ostream & operator << (std::ostream & stream, Manager & manager);
@@ -84,7 +87,10 @@ public:
 		std::cout << x->country << std::endl;
 		}
 
-	
+	void remove(City & city, City &newcity) {
+		std::replace(cityes.begin(), cityes.end(), city, newcity);
+
+	}
 	
 };
 
@@ -92,7 +98,7 @@ int main() {
 	
 	std::vector <City> cityes;
 	Manager man;
-	//man.writeToFilt();
+	man.writeToFilt();
 	man.readFile();
 
 	std::cout << man;
@@ -101,7 +107,12 @@ int main() {
 	man.findCountryByCity();
 	
 
-	City A("Astana", "Akmola");
+	City a("Kazakhstsn", "Astana");
+	City b("Kazakhstsn", "Akmola");
+
+	man.remove(a, b);
+	man.writeToFilt();
+	man.readFile();
 
 	system("pause");
 	return 0;
@@ -114,9 +125,9 @@ std::ostream & operator<<(std::ostream & stream, const City & city)
 	return stream << city.country << "  " << city.name << std::endl;
 }
 
-City operator==(City & city, City & newcity)
+bool operator==(const City & city, const City & newcity)
 {
-	return city = newcity;
+	return city.name == newcity.name;
 }
 
 std::ostream & operator <<(std::ostream & stream,  Manager & manager)
