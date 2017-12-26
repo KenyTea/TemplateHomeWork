@@ -84,7 +84,7 @@ int main() {
 	man.readFile();
 
 	std::cout << man;
-	std::cout << man.cityes.size();
+	std::cout << man.cityes.size() << std::endl;
 
 
 	system("pause");
