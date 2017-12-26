@@ -30,7 +30,7 @@ public:
 
 	friend std::ostream & operator << (std::ostream & stream,const  City & city);
 
-	
+	friend City  operator == (City & city, City & newcity);
 
 };
 
@@ -85,6 +85,7 @@ public:
 		}
 
 	
+	
 };
 
 int main() {
@@ -98,15 +99,24 @@ int main() {
 	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
 	std::cout << std::endl;
 	man.findCountryByCity();
+	
+
 
 
 	system("pause");
 	return 0;
 }
 
+
+
 std::ostream & operator<<(std::ostream & stream, const City & city)
 {
 	return stream << city.country << "  " << city.name << std::endl;
+}
+
+City operator==(City & city, City & newcity)
+{
+	return city = newcity;
 }
 
 std::ostream & operator <<(std::ostream & stream,  Manager & manager)
