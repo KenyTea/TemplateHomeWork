@@ -23,7 +23,7 @@ class City {
 public:
 	std::string name;
 	std::string country;
-	std::vector <City> cityes;
+	
 	City(std::string country, std::string name) {
 		this->country = country;
 		this->name = name;
@@ -33,6 +33,7 @@ public:
 
 	friend bool  operator == (const City & city, const City & city1);
 
+	~City() {}
 };
 
 bool operator==(const City & city, const City & city1)
@@ -99,7 +100,6 @@ public:
 
 	void replacement(City & city, City & newcity) {
 		std::replace(cityes.begin(), cityes.end(), city, newcity);
-
 	}
 
 	void show() {
@@ -108,25 +108,25 @@ public:
 
 	}
 
-	
+	~Manager() {}
 };
 
 int main() {
 	
-	std::vector <City> cityes;
+	
 	Manager man;
 	man.writeToFilt();
 	man.readFile();
 
-	std::cout << man;
+	//std::cout << man;
 	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
 	std::cout << std::endl;
-	//man.findCountryByCity();
+	man.findCountryByCity();
 
 	std::cout << std::endl;
 
-	City a("Kazakhstsn", "Astana");
-	City b("Kazakhstsn", "Akmola");
+	City a("Kazakhstan", "Astana");
+	City b("Kazakhstan", "Akmola");
 	
 	man.replacement(a, b);
 	man.writeToFilt();
