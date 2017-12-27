@@ -1,2 +1,4 @@
 Kazakhstan  Almaty
 Kazakhstan  Astana
+Russia  Moskva
+Russia  Saransk

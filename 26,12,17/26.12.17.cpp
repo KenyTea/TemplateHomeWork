@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <algorithm>
+#include <functional>
 
 // Meet 28
 /*Задание 1
@@ -30,9 +31,14 @@ public:
 
 	friend std::ostream & operator << (std::ostream & stream,const  City & city);
 
-	friend bool  operator == (const City & city, const City & newcity);
+	friend bool  operator == (const City & city, const City & city1);
 
 };
+
+bool operator==(const City & city, const City & city1)
+{
+	return city.name == city1.name && city.country == city1.country;
+}
 
 class Manager {
 public:
@@ -42,6 +48,10 @@ public:
 		cityes.push_back(city);
 		City city1("Kazakhstan", "Astana");
 		cityes.push_back(city1);
+		City city2("Russia", "Moskva");
+		cityes.push_back(city2);
+		City city3("Russia", "Saransk");
+		cityes.push_back(city3);
 		
 	}
 
@@ -87,16 +97,17 @@ public:
 		std::cout << x->country << std::endl;
 		}
 
-	void replacement(City & city, City &newcity) {
+	void replacement(City & city, City & newcity) {
 		std::replace(cityes.begin(), cityes.end(), city, newcity);
 
 	}
 
 	void show() {
-		std::for_each(cityes.begin(), cityes.end(), [](City city) { std::cout << city.country << "  "<<
-			city.name << '\t'; });
+		std::for_each(cityes.begin(), cityes.end(), [](City  city) { std::cout << city.country << "\t"<<
+			city.name << std::endl; });
 
 	}
+
 	
 };
 
@@ -104,19 +115,22 @@ int main() {
 	
 	std::vector <City> cityes;
 	Manager man;
-	//man.writeToFilt();
-	//man.readFile();
+	man.writeToFilt();
+	man.readFile();
 
 	std::cout << man;
 	std::cout << "City size - " << man.cityes.size()<< " pi." << std::endl;
 	std::cout << std::endl;
 	//man.findCountryByCity();
-	
+
+	std::cout << std::endl;
 
 	City a("Kazakhstsn", "Astana");
 	City b("Kazakhstsn", "Akmola");
-	a == b;
-	//man.replacement(a, b);
+	
+	man.replacement(a, b);
+	man.writeToFilt();
+	man.readFile();
 	man.show();
 	system("pause");
 	return 0;
@@ -129,10 +143,7 @@ std::ostream & operator<<(std::ostream & stream, const City & city)
 	return stream << city.country << "  " << city.name << std::endl;
 }
 
-bool operator==(const City & city, const City & newcity)
-{
-	return city.name == newcity.name && city.country == newcity.country;
-}
+
 
 std::ostream & operator <<(std::ostream & stream,  Manager & manager)
 {
