@@ -101,7 +101,7 @@ public:
 	}
 	bool operator() (T & t) 
 	{
-		return p += t; 
+		return t += p; 
 	}
 };
 
@@ -114,7 +114,7 @@ public:
 		this->m = m;
 	}
 	bool operator() (T & t) {
-		return m -= t;
+		return t -= m;
 	}
 };
 
@@ -122,7 +122,7 @@ int main() {
 
 	A <int> a;
 	plus <int> b(10);
-	minus <int> c(10);
+	minus <int> c(2);
 
 	srand(time(NULL));
 	std::vector<int> x (10);
@@ -139,7 +139,7 @@ int main() {
 	std::cout << std::endl; 
 
 	std::sort(x.begin(), x.end(), std::less<int>()); // sort 9 - 0
-	std::cout << "Less "; std::for_each(x.begin(), x.end(), [](int & a) {std::cout << a << " "; });
+	std::cout << "Less    "; std::for_each(x.begin(), x.end(), [](int & a) {std::cout << a << " "; });
 	std::cout << std::endl;
 	std::cout << std::endl;
 
