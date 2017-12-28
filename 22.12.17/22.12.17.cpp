@@ -153,7 +153,7 @@ int main() {
 
 	std::cout << std::endl;
 	x.erase(std::remove(x.begin(), x.end(), 9), x.end());// remove 9 from vector
-	std::cout << "Remove 9   "; std::for_each(x.begin(), x.end(), [n](int & a) {std::cout << a << " "; });
+	std::cout << "Remove 9   "; std::for_each(x.begin(), x.end(), [](int & a) {std::cout << a << " "; });
 	
 	int z = 2;
 	x.erase(x.begin() + z);
