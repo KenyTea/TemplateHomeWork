@@ -68,17 +68,20 @@ public:
 			for (int j = 0; j < 4; ++j) {
 				std::cout << quiz.questions[i].variants[j] << std::endl;
 			}
+			std::cout << std::endl;
 			std::cout << "Enter your unswer: " << std::endl;
 			cin >> player.choice;
 			if (quiz.questions[i].variants[player.choice - 1] == quiz.questions[i].right) {
 				++player.cnt;
 			}
 			else {
+				std::cout << std::endl;
 				std::cout << "Your unswer is " << quiz.questions[i].variants[player.choice - 1] << std::endl;
 				std::cout << "Right unswer is " << quiz.questions[i].right << std::endl;
+				std::cout << std::endl;
 			}
 		}
-
+		std::cout << "Your scor is " << player.cnt;
 	}
 };
 int main() {
