@@ -19,7 +19,7 @@ public:
 	std::string var;
 	vector<Question> questions; // vector whith questions
 
-	friend void retrieveQuestions() {
+	void retrieveQuestions() {
 		ifstream fin("questions.txt"); // create file and read it
 		if (!fin.is_open())  // check file
 		{
@@ -42,6 +42,10 @@ public:
 			}
 		}
 	}
+
+	void startQuiz() {
+
+	}
 };
 
 
@@ -49,31 +53,38 @@ class Player {
 public:
 	int cnt = 0;
 	int choice;
-	Quiz quiz;
 	
-	quiz.retrieveQuestions();
-	for (int i = 0; i < quiz.questions.size(); ++i) {
-		std::cout << quiz.questions[i].content << std::endl;
-		for (int j = 0; j < 4; ++j) {
-			std::cout << quiz.questions[i].variants[j] << std::endl;
-		}
-		
-		cin >> choice;
-		if (quiz.questions[i].variants[choice - 1] == quiz.questions[i].right) {
-			++cnt;
-		}
-		else {
-			std::cout << "Your unswer is " << quiz.questions[i].variants[choice - 1] << std::endl;
-			std::cout << "Right unswer is " << quiz.questions[i].right << std::endl;
-		}
-	}
+	//quiz.retrieveQuestions();
+	
 
+};
+
+class App {
+	Quiz quiz;
+	Player player;
+public:
+	void start() {
+		for (int i = 0; i < quiz.questions.size(); ++i) {
+			std::cout << quiz.questions[i].content << std::endl;
+			for (int j = 0; j < 4; ++j) {
+				std::cout << quiz.questions[i].variants[j] << std::endl;
+			}
+			cin >> player.choice;
+			if (quiz.questions[i].variants[player.choice - 1] == quiz.questions[i].right) {
+				++player.cnt;
+			}
+			else {
+				std::cout << "Your unswer is " << quiz.questions[i].variants[player.choice - 1] << std::endl;
+				std::cout << "Right unswer is " << quiz.questions[i].right << std::endl;
+			}
+		}
+
+	}
 };
 int main() {
 	setlocale(LC_ALL, "RU");
-	
-	
-	
+	App app;
+	app.start();
 	system("pause");
 	return 0;
 }
