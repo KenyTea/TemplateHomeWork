@@ -39,12 +39,25 @@ public:
 };
 
 class Quiz {
+	
 public:
-	std::string var;
+	std::string File(int temp) {
+		std::string var;
+		if (temp == 1)
+		{
+			var = "mathematics.txt";
+			return var;
+        }
+		else if (temp == 2) 
+		{
+			var = "PC.txt";
+			return var;
+		}
+	}
 	std::vector<Question> questions; // vector whith questions
-
-	void retrieveQuestions() {
-		std::ifstream fin("mathematics.txt"); // create file and read it
+	
+	void retrieveQuestions(int var) {
+		std::ifstream fin(File(var)); // create file and read it
 		if (!fin.is_open())  // check file
 		{
 			std::cout << "The file not found" << std::endl;
@@ -86,8 +99,9 @@ public:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	
 	
-	void mathematics() {
-		quiz.retrieveQuestions();
+	void doApp(int var) {
+		system("cls");
+		quiz.retrieveQuestions(var);
 		SetConsoleTextAttribute(hConsole, 3);
 		std::cout << "\tHelp\tEnter the variant number!!!" << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
@@ -138,24 +152,25 @@ public:
 };
 
 class Menu {
-	int var;
 	App app;
 	Player player;
+	Quiz quiz;
+	int var;
 public:
 	void menu1() {
 		std::cout << "To pass the test, enter your name ";
 		std::cin >> player.name;
 		std::cout << std::endl;
-
-		std::cout << "If you want to pass a math test, enter 1";
-		std::cin >> var;
+		system("cls");
 		while (true)
 		{
-			switch (var) {
-			case 1: app.mathematics(); break;
-			
-			}
-
+			system("cls");
+			std::cout << "----------------Menu--------------------" << std::endl;
+			std::cout << "If you want to pass a math test, enter 1" << std::endl;
+			std::cout << "If you want to pass a PC test, enter 2" << std::endl;
+			std::cout << std::endl;
+			std::cin >> var;
+			app.doApp(var);
 		}
 
 }
