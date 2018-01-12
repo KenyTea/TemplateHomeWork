@@ -4,3 +4,27 @@ A. What is a browser?
 3) Photo viewer
 3) Video editor
 1) Program for viewing web pages
+B. What extension does the image file have?
+1) jpg, bmp, png
+2) mp3, mpeg, avi
+3) doc, txt, rtf
+4) rar, zip, exe
+1) jpg, bmp, png
+C. What extension have text files?
+1) rar, zip, exe
+2) jpg, bmp, png
+3) mp3, mpeg, avi
+4) doc, txt, rtf
+4) doc, txt, rtf
+D. What is the most hopeful password?
+1) À1982
+2) Anna_1982
+3) An!nA#1982
+4) 123456789
+3) An!nA#1982
+E. What is the computer device that performs information processing?
+1) CPU
+2) Monitor
+3) Keyboard
+4) External memory
+1) CPU
