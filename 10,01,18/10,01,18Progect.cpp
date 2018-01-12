@@ -143,25 +143,27 @@ public:
 		fout.close(); // close file !!!
 		system("pause");
 	}
-		void Enter()
-		{
-			std::ifstream fin("Player.txt");
+};
 
-			std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-			std::cout << std::endl;
-			std::cout << "Please, enter your name ";
-			std::cin >> checkName;
-			if ()
-				std::system("cls");
-			std::cout << std::endl;
-			std::cout << "Please, enter password ";
-			std::cin >> CheckPass;
-		}
+class CheckUser {
+
+	void Enter()
+	{
+
+		std::ifstream fin("Player.txt");
+
+		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Please, enter your name ";
+		std::cin >> checkName;
+		if ()
+			std::system("cls");
+		std::cout << std::endl;
+		std::cout << "Please, enter password ";
+		std::cin >> CheckPass;
+	}
 
 
-	
-
-	
 };
 
 class App {
