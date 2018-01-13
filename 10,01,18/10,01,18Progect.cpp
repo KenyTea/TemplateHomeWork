@@ -5,11 +5,14 @@
 #include <stdio.h>
 #include <Windows.h>
 #include <conio.h>
+#include <algorithm>
+#include <iomanip>
 //using namespace std;
 class Player;
 class Question;
 class Quiz;
 class Menu;
+class CheckUser;
 
 enum ConsoleColor 
 {
@@ -106,77 +109,111 @@ public:
 	std::string userName, checkName;
 	std::string userPassword, userPassword1, userPassword2, CheckPass;
 	int ctr = 0;
+};
+
+class CheckUser 
+{
+	Player player;
+public:
 	
-	void Registration() {
+
+	void AddPlayerToFile(std::string n, std::string p, int c)
+	{
 		std::string path;
-		std::ofstream fout("Player.txt"); // create ofstream for rec
-		fout.open(path, std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
-		if (!fout.is_open()) { // проверка на открытия файла
+		std::ofstream fout; // create ofstream for rec
+		fout.open("Player.txt", std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
+		if (!fout.is_open()) 
+		{ // проверка на открытия файла
 			std::cout << "The file not found" << std::endl;
 		}
-		else { // посылаем в fout данные
+		else
+		{
+			fout << n << std::endl;
+			fout << p << std::endl;
+			fout << c << std::endl;
+			fout << std::endl;
+		}
+
+		fout.close();
+	}
+
+	void Registration() 
+	{
+
+		//std::string path;
+		//std::ofstream fout("Player.txt"); // create ofstream for rec
+		//fout.open(path, std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
+		//if (!fout.is_open()) { // проверка на открытия файла
+		//	std::cout << "The file not found" << std::endl;
+		//}
+		//else { // посылаем в fout данные
 			std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-			std::system("pause");
-			std::system("cls");
+			std::cout << std::endl;
+			
 			std::cout << "-----------REGOSTRATION-----------" << std::endl;
 			std::cout << "Please, enter your user name ";
-			std::cin >> userName;
+			std::cin >> player.userName;
 			std::system("cls");
 			std::cout << std::endl;
 			std::cout << "Please, enter Your password ";
-			std::cin >> userPassword1;
+			std::cin >> player.userPassword1;
 			std::system("cls");
 			std::cout << std::endl;
 			std::cout << "Please, enter password again ";
-			std::cin >> userPassword2;
+			std::cin >> player.userPassword2;
 
-			if (userPassword1 == userPassword2)
+			if (player.userPassword1 == player.userPassword2)
 			{
-				userPassword = userPassword2;
-				std::cout << "The password is correct";
+				player.userPassword = player.userPassword2;
+				std::cout << "The password is correct" << std::endl;
+				AddPlayerToFile(player.userName, player.userPassword, 0);
 			}
 			else std::cout << "The password is incorrect"; return;
 
-			std::cout << std::endl;
-			fout << userName;
-			fout << userPassword;
-		}
-		fout.close(); // close file !!!
-		system("pause");
-	}
-};
+			
 
-class CheckUser {
-	Player player;
-public:
-	std::vector <Player> usser;
+			
+		//}
+		//fout.close(); // close file !!!
+		//system("pause");
+	}
+
 	void Enter()
 	{
-
+		std::vector <Player> usser;
+			std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
+			std::cout << std::endl;
+			std::cout << "Please, enter your name ";
+			std::cin >> player.checkName;
+			std::system("cls");
+			std::cout << std::endl;
+			std::cout << "Please, enter password ";
+			std::cin >> player.CheckPass;
 		std::ifstream fin("Player.txt");
-		if (fin.is_open()) {
-			std::string u;
-
+		if (!fin.is_open())  // check file
+		{
+			std::cout << "The file not found" << std::endl;
+		}
+		else {
+			std::string temp; // creat temp string
+			std::string temp2;
 			while (!fin.eof()) {
-				fin >> u; //name
-				player.userName = u;
-				fin >> u; //password
-				player.userPassword = u;
+				getline(fin, temp);
+				player.userName = temp; //name
+				player.userPassword = temp;
 				usser.push_back(player);
 			}
-		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-		std::cout << std::endl;
-		std::cout << "Please, enter your name ";
-		std::cin >> player.checkName;
-			std::system("cls");
-		std::cout << std::endl;
-		std::cout << "Please, enter password ";
-		std::cin >> player.CheckPass;
-		if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
-			std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
+			if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
+				std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
+			}
+			else
+			{
+				std::cout << "User not found ";
+				system("pause");
+				return;
+			}
 		}
 	}
-
 
 };
 
@@ -193,7 +230,7 @@ public:
 		std::cout << "\tHelp\tEnter the variant number!!!" << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
 		std::cout << std::endl;
-		std::cout << player.name << std::endl;
+		std::cout << player.userName << std::endl;
 		for (int i = 0; i < quiz.questions.size(); ++i) {
 			std::cout << "\t" << quiz.questions[i].content << std::endl;
 			std::cout << std::endl;
@@ -244,7 +281,7 @@ public:
 		std::cout << "\tHelp\tEnter the variant number!!!" << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
 		std::cout << std::endl;
-		std::cout << player.name << std::endl;
+		std::cout << player.userName << std::endl;
 		for (int i = 0; i < quiz.questions.size(); ++i) {
 			std::cout << "\t" << quiz.questions[i].content << std::endl;
 			std::cout << std::endl;
@@ -321,9 +358,10 @@ public:
 };
 
 int main() {
-	
-	Menu menu;
-	menu.menu1();
+	CheckUser user;
+	user.Enter();
+	//Menu menu;
+	//menu.menu1();
 	
 	
 	system("pause");
