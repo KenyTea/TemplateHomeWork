@@ -104,7 +104,7 @@ public:
 	int counter = 0;
 	int choice;
 	std::string userName, checkName;
-	std::string userPassword, userPassword2, CheckPass;
+	std::string userPassword, userPassword1, userPassword2, CheckPass;
 	int ctr = 0;
 	
 	void Registration() {
@@ -124,14 +124,15 @@ public:
 			std::system("cls");
 			std::cout << std::endl;
 			std::cout << "Please, enter Your password ";
-			std::cin >> userPassword;
+			std::cin >> userPassword1;
 			std::system("cls");
 			std::cout << std::endl;
 			std::cout << "Please, enter password again ";
 			std::cin >> userPassword2;
 
-			if (userPassword == userPassword2)
+			if (userPassword1 == userPassword2)
 			{
+				userPassword = userPassword2;
 				std::cout << "The password is correct";
 			}
 			else std::cout << "The password is incorrect"; return;
@@ -146,21 +147,34 @@ public:
 };
 
 class CheckUser {
-
+	Player player;
+public:
+	std::vector <Player> usser;
 	void Enter()
 	{
 
 		std::ifstream fin("Player.txt");
+		if (fin.is_open()) {
+			std::string u;
 
+			while (!fin.eof()) {
+				fin >> u; //name
+				player.userName = u;
+				fin >> u; //password
+				player.userPassword = u;
+				usser.push_back(player);
+			}
 		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
 		std::cout << std::endl;
 		std::cout << "Please, enter your name ";
-		std::cin >> checkName;
-		if ()
+		std::cin >> player.checkName;
 			std::system("cls");
 		std::cout << std::endl;
 		std::cout << "Please, enter password ";
-		std::cin >> CheckPass;
+		std::cin >> player.CheckPass;
+		if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
+			std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
+		}
 	}
 
 
