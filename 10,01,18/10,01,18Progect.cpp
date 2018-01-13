@@ -197,12 +197,13 @@ public:
 		else {
 			std::string temp; // creat temp string
 			std::string temp2;
-			while (!fin.eof()) {
+			while (!fin.eof()) 
+			{
 				getline(fin, temp);
 				player.userName = temp; //name
+				getline(fin, temp);
 				player.userPassword = temp;
 				usser.push_back(player);
-			}
 			if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
 				std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
 			}
@@ -211,6 +212,7 @@ public:
 				std::cout << "User not found ";
 				system("pause");
 				return;
+			}
 			}
 		}
 	}
