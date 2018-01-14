@@ -155,9 +155,9 @@ class CheckUser
 				player.userPassword = player.userPassword2;
 				std::cout << "The password is correct" << std::endl;
 				AddPlayerToFile(player.userName, player.userPassword, 0);
-				Menu menu;
-				menu.menu1();
-				
+				/*Menu menu;
+				menu.menu1();*/
+			
 			}
 			else std::cout << "The password is incorrect"; return;
 	}
@@ -196,15 +196,15 @@ class CheckUser
 						system("pause");
 						system("cls");
 
-						Menu menu;
-						menu.menu1();
+						/*Menu menu;
+						menu.menu1();*/
 					}
 					else
 					{
 						std::cout << "User not found ";
 
-						Menu menu;
-						menu.menuRegOrEnter();
+						/*Menu menu;
+						menu.menuRegOrEnter();*/
 					}
 				}
 				else
@@ -333,8 +333,8 @@ public:
 class Menu 
 {
 	App app;
-	Player player;
-	Quiz quiz;
+	/*Player player;
+	Quiz quiz;*/
 	CheckUser user;
 	int var;
 public:
@@ -343,8 +343,8 @@ public:
 		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
 		std::cout << std::endl;
 		std::cout << "If You have Account, pleas enter 1" << std::endl;
-		std::cout << std::endl;
 		std::cout << "For registratoin, pleas enter 2" << std::endl;
+		std::cout << std::endl;
 		while (true)
 		{
 			switch (var) {
@@ -386,7 +386,7 @@ public:
 int main() {
 	Menu menu;
 	menu.menuRegOrEnter();
-	menu.menu1();
+	//menu.menu1();
 	
 	
 	system("pause");
