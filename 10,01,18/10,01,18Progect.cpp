@@ -115,7 +115,7 @@ class CheckUser
 {
 	Player player;
 	public:
-	
+		
 
 	void AddPlayerToFile(std::string n, std::string p, int c)
 	{
@@ -157,6 +157,7 @@ class CheckUser
 				AddPlayerToFile(player.userName, player.userPassword, 0);
 				Menu menu;
 				menu.menu1();
+				
 			}
 			else std::cout << "The password is incorrect"; return;
 	}
@@ -164,50 +165,61 @@ class CheckUser
 	void Enter()
 	{
 		std::vector <Player> usser;
-			std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-			std::cout << std::endl;
-			std::cout << "Please, enter your name ";
-			std::cin >> player.checkName;
-			std::system("cls");
-			std::cout << std::endl;
-			std::cout << "Please, enter password ";
-			std::cin >> player.CheckPass;
+		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
+		std::cout << std::endl;
+		std::cout << "Please, enter your name ";
+		std::cin >> player.checkName;
+		std::system("cls");
+		std::cout << std::endl;
+		std::cout << "Please, enter password ";
+		std::cin >> player.CheckPass;
 		std::ifstream fin("Player.txt");
 		if (!fin.is_open())  // check file
 		{
 			std::cout << "The file not found" << std::endl;
 		}
-		else {
+		else
+		{
 			std::string temp; // creat temp string
-			while (!fin.eof()) 
+			while (!fin.eof())
 			{
 				getline(fin, temp);
 				player.userName = temp; //name
 				getline(fin, temp);
 				player.userPassword = temp; // password
 				usser.push_back(player);
-			if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
-				std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
-				system("pause");
-				system("cls");
-				Menu menu;
-				menu.menu1();
-			}
-			else
-			{
-				std::cout << "User not found ";
-				Menu menu;
-				menu.menuRegOrEnter();
-			}
+				if (player.ctr <= 3)
+				{
+					if (player.checkName == player.userName && player.CheckPass == player.userPassword)
+					{
+						std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
+						system("pause");
+						system("cls");
+
+						Menu menu;
+						menu.menu1();
+					}
+					else
+					{
+						std::cout << "User not found ";
+
+						Menu menu;
+						menu.menuRegOrEnter();
+					}
+				}
+				else
+				{
+					Registration();
+				}
 			}
 		}
 	}
-
 };
 
 class App {
 	Quiz quiz;
 	Player player;
+	CheckUser user;
 public:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	
@@ -261,7 +273,6 @@ public:
 			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
-		CheckUser user;
 		user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
 	}
 
@@ -319,11 +330,12 @@ public:
 	}
 };
 
-class Menu {
-	CheckUser user;
+class Menu 
+{
 	App app;
 	Player player;
 	Quiz quiz;
+	CheckUser user;
 	int var;
 public:
 	void menuRegOrEnter ()
@@ -344,7 +356,8 @@ public:
 		}
 	}
 
-	void menu1() {
+	void menu1() 
+	{
 		
 
 		system("cls");
@@ -365,7 +378,7 @@ public:
 			
 		}
 
-}
+    }
 
 
 };
