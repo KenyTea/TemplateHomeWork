@@ -114,12 +114,11 @@ public:
 class CheckUser 
 {
 	Player player;
-public:
+	public:
 	
 
 	void AddPlayerToFile(std::string n, std::string p, int c)
 	{
-		std::string path;
 		std::ofstream fout; // create ofstream for rec
 		fout.open("Player.txt", std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
 		if (!fout.is_open()) 
@@ -139,17 +138,6 @@ public:
 
 	void Registration() 
 	{
-
-		//std::string path;
-		//std::ofstream fout("Player.txt"); // create ofstream for rec
-		//fout.open(path, std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
-		//if (!fout.is_open()) { // проверка на открытия файла
-		//	std::cout << "The file not found" << std::endl;
-		//}
-		//else { // посылаем в fout данные
-			std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-			std::cout << std::endl;
-			
 			std::cout << "-----------REGOSTRATION-----------" << std::endl;
 			std::cout << "Please, enter your user name ";
 			std::cin >> player.userName;
@@ -167,15 +155,10 @@ public:
 				player.userPassword = player.userPassword2;
 				std::cout << "The password is correct" << std::endl;
 				AddPlayerToFile(player.userName, player.userPassword, 0);
+				Menu menu;
+				menu.menu1();
 			}
 			else std::cout << "The password is incorrect"; return;
-
-			
-
-			
-		//}
-		//fout.close(); // close file !!!
-		//system("pause");
 	}
 
 	void Enter()
@@ -196,22 +179,25 @@ public:
 		}
 		else {
 			std::string temp; // creat temp string
-			std::string temp2;
 			while (!fin.eof()) 
 			{
 				getline(fin, temp);
 				player.userName = temp; //name
 				getline(fin, temp);
-				player.userPassword = temp;
+				player.userPassword = temp; // password
 				usser.push_back(player);
 			if (player.checkName == player.userName && player.CheckPass == player.userPassword) {
 				std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
+				system("pause");
+				system("cls");
+				Menu menu;
+				menu.menu1();
 			}
 			else
 			{
 				std::cout << "User not found ";
-				system("pause");
-				return;
+				Menu menu;
+				menu.menuRegOrEnter();
 			}
 			}
 		}
@@ -225,7 +211,8 @@ class App {
 public:
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	
-	void AppMath() {
+	void AppMath() 
+	{
 		system("cls");
 		quiz.mathematics();
 		SetConsoleTextAttribute(hConsole, 3);
@@ -268,12 +255,14 @@ public:
 			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
-		else 
+		else
+		{
 			SetConsoleTextAttribute(hConsole, 12);
-		std::cout << "\tYour scor is " << player.counter << std::endl;
-		    SetConsoleTextAttribute(hConsole, 7);
-
-
+			std::cout << "\tYour scor is " << player.counter << std::endl;
+			SetConsoleTextAttribute(hConsole, 7);
+		}
+		CheckUser user;
+		user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
 	}
 
 	void AppPC() {
@@ -320,22 +309,44 @@ public:
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 		else
+		{
 			SetConsoleTextAttribute(hConsole, 12);
 		std::cout << "\tYour scor is " << player.counter << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
-
-
+		}
+		CheckUser user;
+		user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
 	}
 };
 
 class Menu {
+	CheckUser user;
 	App app;
 	Player player;
 	Quiz quiz;
 	int var;
 public:
+	void menuRegOrEnter ()
+	{
+		std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
+		std::cout << std::endl;
+		std::cout << "If You have Account, pleas enter 1" << std::endl;
+		std::cout << std::endl;
+		std::cout << "For registratoin, pleas enter 2" << std::endl;
+		while (true)
+		{
+			switch (var) {
+			case 1: user.Enter(); break;
+			case 2: user.Registration(); break;
+			case 0: return;
+			}
+
+		}
+	}
+
 	void menu1() {
 		
+
 		system("cls");
 		std::cout << "----------------Menu--------------------" << std::endl;
 		std::cout << "If you want to pass a math test, enter 1" << std::endl;
@@ -360,10 +371,9 @@ public:
 };
 
 int main() {
-	CheckUser user;
-	user.Enter();
-	//Menu menu;
-	//menu.menu1();
+	Menu menu;
+	menu.menuRegOrEnter();
+	menu.menu1();
 	
 	
 	system("pause");
