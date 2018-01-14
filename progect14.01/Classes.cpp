@@ -103,13 +103,12 @@ public:
 	int ctr = 0;
 };
 
-class CheckUser 
+class CheckUser
 {
-		Player player;
-	
+	Player player;
+
 public:
 	
-
 	void AddPlayerToFile(std::string n, std::string p, int c)
 	{
 		std::ofstream fout; // create ofstream for rec
@@ -129,84 +128,32 @@ public:
 		fout.close();
 	}
 
-	//void Registration()
-	//{
-	//	std::cout << "-----------REGOSTRATION-----------" << std::endl;
-	//	std::cout << "Please, enter your user name ";
-	//	std::cin >> player.userName;
-	//	std::system("cls");
-	//	std::cout << std::endl;
-	//	std::cout << "Please, enter Your password ";
-	//	std::cin >> player.userPassword1;
-	//	std::system("cls");
-	//	std::cout << std::endl;
-	//	std::cout << "Please, enter password again ";
-	//	std::cin >> player.userPassword2;
+	void PlayerInfo() 
+	{
+		std::vector <Player> usser;
+		
+		std::ifstream fin("Player.txt");
+		if (!fin.is_open())  // check file
+		{
+			std::cout << "The file not found" << std::endl;
+		}
+		else
+		{
+			std::string temp; // creat temp string
+				
+			
+			while (!fin.eof())
+			{
+				getline(fin, temp);
+				player.userName = temp; //name
+				getline(fin, temp);
+				/*player.counter = temp;
+				usser.push_back(player);*/
 
-	//	if (player.userPassword1 == player.userPassword2)
-	//	{
-	//		player.userPassword = player.userPassword2;
-	//		std::cout << "The password is correct" << std::endl;
-	//		AddPlayerToFile(player.userName, player.userPassword, 0);
-	//		//Menu m;
-	//		m.menu1();
-	//		
-	//	}
-	//	else std::cout << "The password is incorrect"; return;
-	//}
-
-	//void Enter()
-	//{
-	//	std::vector <Player> usser;
-	//	std::cout << "-----------Welcome to the QUIZ APP-----------" << std::endl;
-	//	std::cout << std::endl;
-	//	std::cout << "Please, enter your name ";
-	//	std::cin >> player.checkName;
-	//	std::system("cls");
-	//	std::cout << std::endl;
-	//	std::cout << "Please, enter password ";
-	//	std::cin >> player.CheckPass;
-	//	std::ifstream fin("Player.txt");
-	//	if (!fin.is_open())  // check file
-	//	{
-	//		std::cout << "The file not found" << std::endl;
-	//	}
-	//	else
-	//	{
-	//		std::string temp; // creat temp string
-	//		while (!fin.eof())
-	//		{
-	//			getline(fin, temp);
-	//			player.userName = temp; //name
-	//			getline(fin, temp);
-	//			player.userPassword = temp; // password
-	//			usser.push_back(player);
-	//			if (player.ctr <= 3)
-	//			{
-	//				if (player.checkName == player.userName && player.CheckPass == player.userPassword)
-	//				{
-	//					std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
-	//					system("pause");
-	//					system("cls");
-
-	//					Menu m;
-	//					m.menu1();
-	//				}
-	//				else
-	//				{
-	//					std::cout << "User not found ";
-
-	//					Menu m;
-	//					m.menuRegOrEnter();
-	//				}
-	//			}
-	//			else
-	//			{
-	//				Registration();
-	//			}
-	//		}
-	//	}
-	//}
+				std::cout << "User " << player.userName << " | " << "Score " << player.counter << std::endl;
+			}
+		}
+	}
 };
 
 class App {
@@ -318,7 +265,6 @@ public:
 			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
-		CheckUser user;
 		user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
 	}
 };
@@ -430,8 +376,9 @@ public:
 	{
 		system("cls");
 		std::cout << "----------------Menu--------------------" << std::endl;
-		std::cout << "If you want to pass a math test, enter 1" << std::endl;
-		std::cout << "If you want to pass a PC test, enter 2" << std::endl;
+		std::cout << "If You whant to show scor, enter 1" << std::endl;
+		std::cout << "If you want to pass a math test, enter 2" << std::endl;
+		std::cout << "If you want to pass a PC test, enter 3" << std::endl;
 		std::cout << "For EXIT, enter 0" << std::endl;
 		std::cout << std::endl;
 		std::cin >> var;
@@ -439,8 +386,9 @@ public:
 		while (true)
 		{
 			switch (var) {
-			case 1: app.AppMath(); break;
-			case 2: app.AppPC(); break;
+			case 1: user.PlayerInfo(); break;
+			case 2: app.AppMath(); break;
+			case 3: app.AppPC(); break;
 			case 0: return;
 			}
 		}
