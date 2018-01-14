@@ -130,35 +130,34 @@ public:
 
 	void PlayerInfo() 
 	{
-		std::vector <Player> usser;
-		
-		std::ifstream fin("Player.txt");
-		if (!fin.is_open())  // check file
-		{
-			std::cout << "The file not found" << std::endl;
-		}
-		else
-		{
-			std::string temp; // creat temp string
-				
-			while (!fin.eof())
-			{
-				getline(fin, temp);
-				player.userName = temp; //name
-				getline(fin, temp);
-				/*player.counter = temp;
-				usser.push_back(player);*/
-
-			}
+		//std::vector <Player> usser;
+		//
+		//std::ifstream fin("Player.txt");
+		//if (!fin.is_open())  // check file
+		//{
+		//	std::cout << "The file not found" << std::endl;
+		//}
+		//else
+		//{
+		//	std::string temp; // creat temp string
+		//		
+		//	while (!fin.eof())
+		//	{
+		//		getline(fin, temp);
+		//		player.userName = temp; //name
+		//		usser.push_back(player);
+		//	}
 				std::cout << "User " << player.userName << " | ";
+				/*int ss;
 			while (!fin.eof())
 			{
-				fin >> player.counter;
+				fin >> ss;
+				player.counter = ss;
 			}
 				std::cout << "Score " << player.counter << std::endl;
-
-		}
+		}*/
 	}
+   
 };
 
 class App {
@@ -305,6 +304,7 @@ public:
 
 	void Enter()
 	{
+		system("cls");
 		std::vector <Player> usser;
 		std::cout << "-----------Menu enter-----------" << std::endl;
 		std::cout << std::endl;
@@ -333,6 +333,7 @@ public:
 				{
 					if (player.checkName == player.userName && player.CheckPass == player.userPassword)
 					{
+						std::system("cls");
 						std::cout << "Welcom to QUIZ APP mr' " << player.userName << std::endl;
 						system("pause");
 						system("cls");
@@ -404,9 +405,6 @@ int main()
 {
 	Menu menu;
 	menu.menuRegOrEnter();
-	//menu.menu1();
-
-
 	system("pause");
 	return 0;
 }
