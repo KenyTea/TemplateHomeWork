@@ -141,7 +141,6 @@ public:
 		{
 			std::string temp; // creat temp string
 				
-			
 			while (!fin.eof())
 			{
 				getline(fin, temp);
@@ -150,8 +149,14 @@ public:
 				/*player.counter = temp;
 				usser.push_back(player);*/
 
-				std::cout << "User " << player.userName << " | " << "Score " << player.counter << std::endl;
 			}
+				std::cout << "User " << player.userName << " | ";
+			while (!fin.eof())
+			{
+				fin >> player.counter;
+			}
+				std::cout << "Score " << player.counter << std::endl;
+
 		}
 	}
 };
