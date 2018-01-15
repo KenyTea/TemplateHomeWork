@@ -166,20 +166,20 @@ public:
 			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 
-			std::ofstream fout; // create ofstream for rec
-			fout.open("Player.txt", std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
-			if (!fout.is_open())
-			{ // проверка на открытия файла
-				std::cout << "The file not found" << std::endl;
-			}
-			else
-			{
-				fout << player.userName << std::endl;
-				fout << player.userPassword << std::endl;
-				fout << player.counter;
-			}
+			//std::ofstream fout; // create ofstream for rec
+			//fout.open("Player.txt", std::ofstream::app); // открываем файл и дополнительно указываем ofstream::app для дозаписывания в конец (без затирания)
+			//if (!fout.is_open())
+			//{ // проверка на открытия файла
+			//	std::cout << "The file not found" << std::endl;
+			//}
+			//else
+			//{
+			//	fout << player.userName << std::endl;
+			//	fout << player.userPassword << std::endl;
+			//	fout << player.counter;
+			//}
 
-			fout.close();
+			//fout.close();
 		}
 		//user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
 
@@ -282,7 +282,6 @@ public:
 	//		fout << p << std::endl;
 	//		fout << c << std::endl;
 	//	}
-
 	//	fout.close();
 	//}
 //*****************************************
@@ -313,16 +312,22 @@ public:
 
 	//***********************************************************************
 
-	bool SaveUseres() {
+	bool SaveUseres() 
+	{
 		std::ofstream fout;
 
-		fout.open("Player.txt");
+		fout.open("Player.txt", std::ofstream::app); // Add , std::ofstream::app , for add to (don't clear)
 
-		if (fout.is_open()) {
+		if (fout.is_open()) 
+		{
 
-			for (int i = 0; i < usser.size(); i++) {
+			for (int i = 0; i < usser.size(); i++) 
+			{
 				fout << usser.at(i).userName << "\n" << usser.at(i).userPassword << "\n"
 					<< usser.at(i).counter << "\n";
+				/*fout << usser.at(i).userName << std::endl;
+				fout << usser.at(i).userPassword << std::endl;
+				fout << usser.at(i).counter;*/
 			}
 			fout.close();
 		}
@@ -338,7 +343,7 @@ public:
 		system("cls");
 
 		for (int i = 0; i <usser.size(); i++)
-			std::cout << usser.at(i).userName << " " << usser.at(i).counter << "\n";
+			std::cout << "User " << usser.at(i).userName << " | " << "Scor " << usser.at(i).counter << "\n";
 
 		/******************************************************
 
@@ -393,8 +398,15 @@ public:
 			temp.counter = 0;
 			system("cls");
 			//user.AddPlayerToFile(player.userName, player.userPassword, player.counter);
+			std::cout << std::endl;
+			std::cout << "Created new User "<< std::endl;
+			std::cout << std::endl;
+			std::cout << "User Name " << temp.userName << " | " << "User Password " << temp.userPassword << " | " << "User Scor " << temp.counter; _getch();
 
-			std::cout << temp.userName << " " << temp.userPassword << " " << temp.counter; _getch();
+			// Test++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			//SaveUseres();
+			// Test++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 			//coment Alfara********************************************************
 
@@ -414,31 +426,41 @@ public:
 			//fout.close();
 
 			//coment Alfara********************************************************
+			
 			retrieveUsers();
 			usser.push_back(temp);
+
+			//))))))))))))))))))))))))))))))))))))))))))))))))))
+	       // PlayerInfo(); _getch();
+			//))))))))))))))))))))))))))))))))))))))))))))))))))
+
 			PlayerInfo(); _getch();
-			//PlayerInfo(); _getch();
 			system("pause");
 			system("cls");
-			int var;
-			while (true)
-			{
-				std::cout << "\t----------------Menu--------------------" << std::endl;
-				std::cout << "\tIf You whant to show scor, enter 1" << std::endl;
-				std::cout << "\tIf you want to pass a math test, enter 2" << std::endl;
-				std::cout << "\tIf you want to pass a PC test, enter 3" << std::endl;
-				std::cout << "\tFor EXIT, enter 0" << std::endl;
-				std::cout << std::endl;
-				std::cin >> var;
-				//system("cls");
-				switch (var) {
-				case 1: usser.push_back(player); SaveUseres(); PlayerInfo(); break;
-				case 2: player.counter = app.AppMath(); break;
-				case 3: player.counter = app.AppPC(); break;
-				case 0: usser.push_back(player); SaveUseres(); return;
-				}
-			}
-
+			//--------------------------------------------------------------------------------------
+			//int var;
+			//while (true)
+			//{
+			//	std::cout << std::endl;
+			//	std::cout << "\t-----------------Menu--------------------" << std::endl;
+			//	std::cout << "\tIf You whant to show scor, enter 1" << std::endl;
+			//	std::cout << "\tIf you want to pass a math test, enter 2" << std::endl;
+			//	std::cout << "\tIf you want to pass a PC test, enter 3" << std::endl;
+			//	std::cout << "\tFor EXIT, enter 0" << std::endl;
+			//	std::cout << std::endl;
+			//	std::cin >> var;
+			//	//system("cls");
+			//	switch (var) {
+			//	case 1: usser.push_back(player); SaveUseres(); PlayerInfo(); break;
+			//	case 2: player.counter = app.AppMath(); break;
+			//	case 3: player.counter = app.AppPC(); break;
+			//	case 0: usser.push_back(player); SaveUseres(); return;
+			//	}
+			//}
+			//----------------------------------------------------------------------------------------
+			// zamenil na
+			menuForQuiz();
+			//----------------------------------------------------------------------------------------
 			usser.push_back(player);
 			SaveUseres();
 			PlayerInfo();
@@ -447,6 +469,28 @@ public:
 		}
 		else std::cout << "\tThe password is incorrect"; return;
 
+	}
+	void menuForQuiz()
+	{
+		int var;
+		while (true)
+		{
+			std::cout << std::endl;
+			std::cout << "\t-----------------Menu--------------------" << std::endl;
+			std::cout << "\tIf You whant to show scor, enter 1" << std::endl;
+			std::cout << "\tIf you want to pass a math test, enter 2" << std::endl;
+			std::cout << "\tIf you want to pass a PC test, enter 3" << std::endl;
+			std::cout << "\tFor EXIT, enter 0" << std::endl;
+			std::cout << std::endl;
+			std::cin >> var;
+			
+			switch (var) {
+			case 1: usser.push_back(player); SaveUseres(); PlayerInfo(); break;
+			case 2: player.counter = app.AppMath(); break;
+			case 3: player.counter = app.AppPC(); break;
+			case 0: usser.push_back(player); SaveUseres(); return;
+			}
+		}
 	}
 	};
 
@@ -471,16 +515,20 @@ public:
 		while (true)
 		{
 		system("cls");
-		std::cout << "\t-----------Welcome to the QUIZ APP-----------" << std::endl;
 		std::cout << std::endl;
-		std::cout << "\tIf You have Account, pleas enter 1" << std::endl;
-		std::cout << "\tFor registratoin, pleas enter 2" << std::endl;
+		std::cout << "\t---------------Welcome to the QUIZ APP---------------" << std::endl;
+		std::cout << std::endl;
+		std::cout << "\t        If You have Account, please enter 1" << std::endl;
+		std::cout << std::endl;
+		std::cout << "\t         For registratoin, please enter 2" << std::endl;
+		std::cout << std::endl;
+		std::cout << "\t                 For EXIT, enter 0" << std::endl;
 		std::cout << std::endl;
 		std::cin >> var;
 			switch (var) {
 			case 1: Enter(); break;
 			case 2: user.Registration(); break;
-			case 0:return;
+			case 0: user.usser.push_back(player); user.SaveUseres(); return;
 			}
 
 		}
@@ -493,13 +541,14 @@ public:
 	{
 		system("cls");
 		std::vector <Player> usser;
-		std::cout << "\t-----------Menu enter-----------" << std::endl;
+		std::cout << "\t-------------AUTHORIZATION-------------" << std::endl;
 		std::cout << std::endl;
-		std::cout << "\tPlease, enter your name ";
+		std::cout << "\t        Please, enter your name ";
 		std::cin >> player.checkName;
 		std::system("cls");
+		std::cout << "\t-------------AUTHORIZATION-------------" << std::endl;
 		std::cout << std::endl;
-		std::cout << "\tPlease, enter password ";
+		std::cout << "\t         Please, enter password ";
 		std::cin >> player.CheckPass;
 		std::ifstream fin("Player.txt");
 		if (!fin.is_open())  // check file
@@ -521,22 +570,25 @@ public:
 					if (player.checkName == player.userName && player.CheckPass == player.userPassword)
 					{
 						std::system("cls");
-						std::cout << "\tWelcom to QUIZ APP mr' " << player.userName << std::endl;
+						std::cout << std::endl;
+						std::cout << "\t  Welcom to QUIZ APP mr' " << player.userName << std::endl;
 						system("pause");
 						system("cls");
 
-						//menu1();
+						user.menuForQuiz();
 					}
 					else
 					{
-						std::cout << "\tUser not found ";
-
+						system("cls");
+						std::cout << std::endl;
+						std::cout << "\t     User not found ";
+						_getch();
 						menuRegOrEnter();
 					}
 				}
 				else
 				{
-					//Registration();
+					user.Registration();
 				}
 			}
 		}
