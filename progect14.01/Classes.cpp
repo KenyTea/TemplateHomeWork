@@ -316,7 +316,7 @@ public:
 	{
 		std::ofstream fout;
 
-		fout.open("Player.txt", std::ofstream::app); // Add , std::ofstream::app , for add to (don't clear)
+		fout.open("Player.txt"); // Add , std::ofstream::app , for add to (don't clear)
 
 		if (fout.is_open()) 
 		{
@@ -431,10 +431,9 @@ public:
 			usser.push_back(temp);
 
 			//))))))))))))))))))))))))))))))))))))))))))))))))))
-	       // PlayerInfo(); _getch();
+	        PlayerInfo(); _getch();
 			//))))))))))))))))))))))))))))))))))))))))))))))))))
-
-			PlayerInfo(); _getch();
+			
 			system("pause");
 			system("cls");
 			//--------------------------------------------------------------------------------------
