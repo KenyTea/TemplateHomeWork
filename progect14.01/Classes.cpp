@@ -102,6 +102,7 @@ public:
 
 class Player {
 public:
+	int ID = 0;
 	int counter = 0;
 	int choice;
 	std::string userName, checkName;
@@ -156,13 +157,13 @@ public:
 		if (player.counter > 3)
 		{
 			SetConsoleTextAttribute(hConsole, 2);
-			std::cout << "\tYour scor is " << player.counter << std::endl;
+			std::cout << "User " << player.checkName << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 		else
 		{
 			SetConsoleTextAttribute(hConsole, 12);
-			std::cout << "\tYour scor is " << player.counter << std::endl;
+			std::cout << "User " << player.checkName << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 
@@ -187,6 +188,7 @@ public:
 			std::cout << "\tEnter your answer: ";
 			std::cin >> player.choice;
 			if (quiz.questions[i].variants[player.choice - 1] == quiz.questions[i].right) {
+				
 				++player.counter;
 				SetConsoleTextAttribute(hConsole, 2);
 				std::cout << "\tCorrect";
@@ -217,7 +219,7 @@ public:
 			SetConsoleTextAttribute(hConsole, 12);
 			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
-	
+			
 			return player.counter;
 		}
 	}
@@ -305,24 +307,13 @@ public:
 			std::cout << std::endl;
 			std::cout << "User Name " << temp.userName << " | " << "User Password " << temp.userPassword << " | " << "User Scor " << temp.counter; _getch();
 
-			// Test++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-			//SaveUseres();
-			// Test++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-			//retrieveUsers();
 			usser.push_back(temp);
-
-			//))))))))))))))))))))))))))))))))))))))))))))))))))
-	       // PlayerInfo(); _getch();
-			//))))))))))))))))))))))))))))))))))))))))))))))))))
 			
 			system("pause");
 			system("cls");
 
-			//----------------------------------------------------------------------------------------
 			menuForQuiz();
-			//----------------------------------------------------------------------------------------
-			PlayerInfo();
+			
 		}
 		else std::cout << "\tThe password is incorrect"; system("pause"); return;
 
@@ -412,6 +403,10 @@ public:
 					std::cout << std::endl;
 					std::cout << "\t  Welcom to QUIZ APP mr' " << player.checkName << std::endl;
 					system("pause");
+					//-------------------------------------------------------------------------
+					player.userName = player.checkName = user.usser.at(i).userName;
+					player.counter = user.usser.at(i).counter;
+					//-------------------------------------------------------------------------
 
 					user.menuForQuiz();
 				}
@@ -469,6 +464,8 @@ public:
 		//}
 	}
 };
+
+static int ID = 0;
 
 int main()
 {
