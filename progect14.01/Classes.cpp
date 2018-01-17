@@ -102,17 +102,17 @@ public:
 
 class Player {
 
+public:
 	int counter = 0;
 	int choice;
 	std::string userName, checkName;
 	std::string userPassword, userPassword1, userPassword2, CheckPass;
 	int ctr = 0;
-public:
 	static Player & getInstace() {
 		static Player instance;
 		return instance;
 	}
-	void setCounter(int counter) { this->counter = counter; }
+	/*void setCounter(int counter) { this->counter = counter; }
 	void setChoice(int choice) { this->choice = choice; }
 	void setUserName(std::string userName) { this->userName = userName; }
 	void setCheckName(std::string checkName) { this->checkName = checkName; }
@@ -131,7 +131,7 @@ public:
 	std::string getUserPasswords2() { return userPassword2; }
 	std::string getCheckPas() { return CheckPass; }
 	int getCtr() { return ctr; }
-	
+	*/
 
 
 
@@ -153,7 +153,7 @@ public:
 		std::cout << "\tHelp\tEnter the variant number!!!" << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
 		std::cout << std::endl;
-		std::cout << player->getUserName/*player.userName*/ << std::endl;
+		std::cout << player.userName << std::endl;
 		for (int i = 0; i < quiz.questions.size(); ++i) {
 			std::cout << "\t" << quiz.questions[i].content << std::endl;
 			std::cout << std::endl;
@@ -162,9 +162,9 @@ public:
 			}
 			std::cout << std::endl;
 			std::cout << "\tEnter your answer: ";
-			std::cin >> /*player.choice*/ player->getChoice;
-			if (quiz.questions[i].variants[/*player.choice*/player->getChoice - 1] == quiz.questions[i].right) {
-				++/*player.counter*/player->getCounter;
+			std::cin >> player.choice;
+			if (quiz.questions[i].variants[player.choice - 1] == quiz.questions[i].right) {
+				++player.counter;
 				SetConsoleTextAttribute(hConsole, 2);
 				std::cout << "\tCorrect";
 				SetConsoleTextAttribute(hConsole, 7);
@@ -174,7 +174,7 @@ public:
 			else {
 				std::cout << std::endl;
 				SetConsoleTextAttribute(hConsole, 12);
-				std::cout << "\tYour answer is    " << quiz.questions[i].variants[/*player.choice*/player->getChoice - 1] << std::endl;
+				std::cout << "\tYour answer is    " << quiz.questions[i].variants[player.choice - 1] << std::endl;
 				SetConsoleTextAttribute(hConsole, 2);
 				std::cout << "\tCorrect answer is " << quiz.questions[i].right << std::endl;
 				SetConsoleTextAttribute(hConsole, 7);
@@ -183,20 +183,20 @@ public:
 				std::cout << std::endl;
 			}
 		}
-		if (/*player.counter*/player->getCounter > 3)
+		if (player.counter > 3)
 		{
 			SetConsoleTextAttribute(hConsole, 2);
-			std::cout << "User " << /*player.checkName*/player->getUserName << "\tYour scor is " << /*player.counter*/player->getCounter << std::endl;
+			std::cout << "User " << player.checkName << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 		else
 		{
 			SetConsoleTextAttribute(hConsole, 12);
-			std::cout << "User " << /*player.checkName*/player->getUserName << "\tYour scor is " << /*player.counter*/player->getCounter << std::endl;
+			std::cout << "User " << player.checkName << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 
-		return /*player.counter*/player->getCounter;
+		return player.counter;
 	}
 
 	int AppPC() {
@@ -206,7 +206,7 @@ public:
 		std::cout << "\tHelp\tEnter the variant number!!!" << std::endl;
 		SetConsoleTextAttribute(hConsole, 7);
 		std::cout << std::endl;
-		std::cout << player->getUserName << std::endl;
+		std::cout << player.userName << std::endl;
 		for (int i = 0; i < quiz.questions.size(); ++i) {
 			std::cout << "\t" << quiz.questions[i].content << std::endl;
 			std::cout << std::endl;
@@ -215,10 +215,10 @@ public:
 			}
 			std::cout << std::endl;
 			std::cout << "\tEnter your answer: ";
-			std::cin >> player->getChoice;
-			if (quiz.questions[i].variants[player->getChoice - 1] == quiz.questions[i].right) {
+			std::cin >> player.choice;
+			if (quiz.questions[i].variants[player.choice - 1] == quiz.questions[i].right) {
 				
-				++/*player.counter*/player->getCounter;
+				++player.counter;
 				SetConsoleTextAttribute(hConsole, 2);
 				std::cout << "\tCorrect";
 				SetConsoleTextAttribute(hConsole, 7);
@@ -228,7 +228,7 @@ public:
 			else {
 				std::cout << std::endl;
 				SetConsoleTextAttribute(hConsole, 12);
-				std::cout << "\tYour answer is    " << quiz.questions[i].variants[player->getChoice - 1] << std::endl;
+				std::cout << "\tYour answer is    " << quiz.questions[i].variants[player.choice - 1] << std::endl;
 				SetConsoleTextAttribute(hConsole, 2);
 				std::cout << "\tCorrect answer is " << quiz.questions[i].right << std::endl;
 				SetConsoleTextAttribute(hConsole, 7);
@@ -237,19 +237,19 @@ public:
 				std::cout << std::endl;
 			}
 		}
-		if (/*player.counter*/player->getCounter > 3)
+		if (player.counter > 3)
 		{
 			SetConsoleTextAttribute(hConsole, 2);
-			std::cout << "\tYour scor is " << /*player.counter*/player->getCounter << std::endl;
+			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 		}
 		else
 		{
 			SetConsoleTextAttribute(hConsole, 12);
-			std::cout << "\tYour scor is " << /*player.counter*/player->getCounter << std::endl;
+			std::cout << "\tYour scor is " << player.counter << std::endl;
 			SetConsoleTextAttribute(hConsole, 7);
 			
-			return /*player.counter*/player->getCounter;
+			return player.counter;
 		}
 	}
 };
@@ -270,7 +270,7 @@ public:
 
 			while (!fin.eof()) 
 			{		
-				fin >> player->getUserName >> player->getUserPasswords >> player->getCounter;
+				fin >> player.userName >> player.userPassword >> player.counter;
 					usser.push_back(player);
 			}
 			fin.close();
@@ -289,8 +289,8 @@ public:
 
 			for (int i = 0; i < usser.size(); i++) 
 			{
-				fout  << usser.at(i).getUserName << "\n" << usser.at(i).getUserPasswords << "\n"
-					<< usser.at(i).getCounter << "\n";
+				fout  << usser.at(i).userName << "\n" << usser.at(i).userPassword << "\n"
+					<< usser.at(i).counter << "\n";
 			}
 		
 			fout.close();
@@ -306,7 +306,7 @@ public:
 		system("cls");
 		
 		for (int i = 0; i <usser.size(); i++)
-			std::cout << "User " << usser.at(i).getUserName << " | " << "Scor " << usser.at(i).getCounter << "\n";
+			std::cout << "User " << usser.at(i).userName << " | " << "Scor " << usser.at(i).counter << "\n";
 
 	}
 
@@ -316,26 +316,26 @@ public:
 		system("cls");
 		std::cout << "\t-----------REGISTRATION-----------" << std::endl;
 		std::cout << "\tPlease, enter your user name ";
-		std::cin >> temp.getUserName;
+		std::cin >> temp.userName;
 		std::system("cls");
 		std::cout << std::endl;
 		std::cout << "\tPlease, enter Your password ";
-		std::cin >> temp.getUserPasswords1;
+		std::cin >> temp.userPassword1;
 		std::system("cls");
 		std::cout << std::endl;
 		std::cout << "\tPlease, enter password again ";
-		std::cin >> temp.getUserPasswords2;
+		std::cin >> temp.userPassword2;
 
-		if (temp.getUserPasswords1 == temp.getUserPasswords2)
+		if (temp.userPassword1 == temp.userPassword2)
 		{
-			temp.getUserPasswords = temp.getUserPasswords2;
+			temp.userPassword = temp.userPassword2;
 			std::cout << "\tThe password is correct" << std::endl;
-			temp.getCounter = 0;
+			temp.counter = 0;
 			system("cls");
 			std::cout << std::endl;
 			std::cout << "Created new User "<< std::endl;
 			std::cout << std::endl;
-			std::cout << "User Name " << temp.getUserName << " | " << "User Password " << temp.getUserPasswords << " | " << "User Scor " << temp.getCounter; _getch();
+			std::cout << "User Name " << temp.userName << " | " << "User Password " << temp.userPassword << " | " << "User Scor " << temp.counter; _getch();
 
 			usser.push_back(temp);
 			
@@ -365,8 +365,8 @@ public:
 			
 			switch (var) {
 			case 1: PlayerInfo(); break;
-			case 2: player.getCounter = app.AppMath(); break;
-			case 3: player.getCounter = app.AppPC(); break;
+			case 2: player.counter = app.AppMath(); break;
+			case 3: player.counter = app.AppPC(); break;
 			case 0: SaveUseres(); exit(0);
 			}
 		}
@@ -379,7 +379,8 @@ public:
 class Menu : public CheckUser
 {
 public:
-	Player  player;
+	//Player  player;
+	Player & player = Player::getInstace();
 	Quiz quiz;
 	CheckUser  user;
 	
