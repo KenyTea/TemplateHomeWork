@@ -61,6 +61,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "progect14.01", "progect14.0
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Progect17.01.18", "Progect17.01.18\Progect17.01.18.vcxproj", "{41A5A5AC-F14C-4EBA-955E-A455225F26F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Progect_Quiz_App", "Progect_Quiz_App\Progect_Quiz_App.vcxproj", "{8E90559B-696B-4C0E-9AC8-877359D2627C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -301,6 +303,14 @@ Global
 		{41A5A5AC-F14C-4EBA-955E-A455225F26F5}.Release|x64.Build.0 = Release|x64
 		{41A5A5AC-F14C-4EBA-955E-A455225F26F5}.Release|x86.ActiveCfg = Release|Win32
 		{41A5A5AC-F14C-4EBA-955E-A455225F26F5}.Release|x86.Build.0 = Release|Win32
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Debug|x64.ActiveCfg = Debug|x64
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Debug|x64.Build.0 = Debug|x64
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Debug|x86.ActiveCfg = Debug|Win32
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Debug|x86.Build.0 = Debug|Win32
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Release|x64.ActiveCfg = Release|x64
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Release|x64.Build.0 = Release|x64
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Release|x86.ActiveCfg = Release|Win32
+		{8E90559B-696B-4C0E-9AC8-877359D2627C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
