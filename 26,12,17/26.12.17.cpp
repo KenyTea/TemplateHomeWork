@@ -41,10 +41,10 @@ bool operator==(const City & city, const City & city1)
 	return city.name == city1.name && city.country == city1.country;
 }
 
-class Manager {
+class CheckUsers {
 public:
 	std::vector<City> cityes;
-	Manager() {
+	CheckUsers() {
 		City city("Kazakhstan", "Almaty");
 		cityes.push_back(city);
 		City city1("Kazakhstan", "Astana");
@@ -88,7 +88,7 @@ public:
 
 	}
 	
-	friend std::ostream & operator << (std::ostream & stream, Manager & manager);
+	friend std::ostream & operator << (std::ostream & stream, CheckUsers & manager);
 
 	void findCountryByCity() {
 		std::string find;
@@ -108,13 +108,13 @@ public:
 
 	}
 
-	~Manager() {}
+	~CheckUsers() {}
 };
 
 int main() {
 	
 	
-	Manager man;
+	CheckUsers man;
 	man.writeToFilt();
 	man.readFile();
 
@@ -145,7 +145,7 @@ std::ostream & operator<<(std::ostream & stream, const City & city)
 
 
 
-std::ostream & operator <<(std::ostream & stream,  Manager & manager)
+std::ostream & operator <<(std::ostream & stream,  CheckUsers & manager)
 {
 	std::for_each(manager.cityes.begin(), manager.cityes.end(), [&stream] (const City & city)
 	{
